@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Collections — Savor & Simplify</title>
+  <meta name="description" content="Seasonal and occasion collections curated by Laura. Halloween, Thanksgiving, Christmas, Valentine's Day, Easter, and more — every season, beautifully organized.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* Collections grid */
+    .collections-hero {
+      background: var(--espresso);
+      color: white;
+      padding: 6rem 0 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .collections-hero__eyebrow { color: var(--terracotta-lt); letter-spacing: .14em; font-size: .75rem; font-weight: 600; text-transform: uppercase; font-family: var(--font-body); }
+    .collections-hero h1 { font-family: var(--font-display); font-size: clamp(2.5rem,6vw,4.5rem); color: white; margin-top: .75rem; }
+    .collections-hero p { font-size: 1.0625rem; color: rgba(255,255,255,.72); max-width: 54ch; margin: 1rem auto 0; line-height: 1.75; }
+    .collections-hero__botanical {
+      position: absolute;
+      width: 240px;
+      opacity: .06;
+      top: -30px;
+      right: -30px;
+    }
+
+    .collections-section {
+      padding: 5rem 0;
+    }
+    .collections-section + .collections-section {
+      padding-top: 0;
+    }
+    .collections-section__header {
+      margin-bottom: 2.5rem;
+    }
+    .collections-section__header h2 {
+      font-size: 2rem;
+    }
+
+    .coll-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 1024px) { .coll-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .coll-grid { grid-template-columns: 1fr; } }
+
+    .coll-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      box-shadow: var(--shadow-sm);
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+      position: relative;
+    }
+    .coll-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .coll-card__img {
+      aspect-ratio: 3/2;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .coll-card__emoji {
+      font-size: 3.5rem;
+      line-height: 1;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,.2));
+    }
+    .coll-card--live .coll-card__img::after {
+      content: 'LIVE NOW';
+      position: absolute;
+      top: .75rem;
+      left: .75rem;
+      background: var(--terracotta);
+      color: white;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      padding: .25rem .6rem;
+      border-radius: 20px;
+    }
+    .coll-card--coming .coll-card__img::after {
+      content: 'COMING SOON';
+      position: absolute;
+      top: .75rem;
+      left: .75rem;
+      background: rgba(0,0,0,.45);
+      color: white;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      padding: .25rem .6rem;
+      border-radius: 20px;
+    }
+    .coll-card--coming { opacity: .82; }
+    .coll-card__body {
+      background: white;
+      padding: 1.25rem 1.375rem 1.5rem;
+    }
+    .coll-card__season {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--espresso-lt);
+      margin-bottom: .25rem;
+    }
+    .coll-card__name {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: var(--espresso);
+      margin-bottom: .375rem;
+    }
+    .coll-card__desc {
+      font-size: .875rem;
+      color: var(--espresso-lt);
+      line-height: 1.6;
+    }
+    .coll-card__action {
+      margin-top: 1rem;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      color: var(--olive);
+      display: flex;
+      align-items: center;
+      gap: .375rem;
+    }
+    .coll-card--coming .coll-card__action { color: var(--espresso-lt); }
+
+    /* Divider between year sections */
+    .year-label {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--espresso-lt);
+      border-top: 1px solid var(--sand-light);
+      padding-top: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Newsletter inline */
+    .newsletter-inline {
+      background: var(--espresso);
+      border-radius: var(--radius-xl);
+      padding: 3.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+      margin: 4rem 0;
+    }
+    .newsletter-inline h3 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: white;
+      margin-bottom: .5rem;
+    }
+    .newsletter-inline p {
+      color: rgba(255,255,255,.7);
+      font-size: .9375rem;
+    }
+    .newsletter-inline form {
+      display: flex;
+      gap: .625rem;
+      flex-wrap: wrap;
+    }
+    .newsletter-inline input {
+      padding: .75rem 1.125rem;
+      border-radius: 6px;
+      border: none;
+      font-family: var(--font-body);
+      font-size: .9375rem;
+      min-width: 240px;
+    }
+    .newsletter-inline button {
+      padding: .75rem 1.5rem;
+      background: var(--terracotta);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: .875rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background var(--transition);
+    }
+    .newsletter-inline button:hover { background: var(--espresso-lt); }
+    @media (max-width: 768px) {
+      .newsletter-inline { grid-template-columns: 1fr; padding: 2.5rem 1.75rem; }
+      .newsletter-inline input { min-width: 0; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="announcement">🎃 Halloween Collection Now Live &nbsp;·&nbsp; Affiliate picks, curated with care &nbsp;·&nbsp; No extra cost to you</div>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">Savor <span>&</span> Simplify</a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collections.html" class="active">Collections</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="shop.html" class="nav__icon-btn">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Search
+      </a>
+    </div>
+    <button class="nav__hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<nav class="nav__mobile" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="collections.html">Collections</a>
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <div class="nav__mobile-footer">
+    <a href="halloween.html" class="btn btn--olive">Shop Halloween</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="collections-hero">
+  <svg class="collections-hero__botanical" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M100 290 L100 20" stroke="white" stroke-width="3"/>
+    <path d="M100 240 Q55 210 64 170 Q92 185 100 240Z" fill="white"/>
+    <path d="M100 240 Q145 210 136 170 Q108 185 100 240Z" fill="white"/>
+    <path d="M100 185 Q52 152 64 108 Q92 123 100 185Z" fill="white"/>
+    <path d="M100 185 Q148 152 136 108 Q108 123 100 185Z" fill="white"/>
+    <path d="M100 125 Q56 95 66 55 Q92 68 100 125Z" fill="white"/>
+    <path d="M100 125 Q144 95 134 55 Q108 68 100 125Z" fill="white"/>
+  </svg>
+  <div class="container">
+    <div class="collections-hero__eyebrow">Curated by Laura</div>
+    <h1>Every Season.<br>Every Occasion.</h1>
+    <p>Seasonal tablescapes, holiday entertaining, and year-round picks — organized into collections so you can find everything you need in one place.</p>
+  </div>
+</section>
+
+<!-- Seasonal Collections -->
+<section class="collections-section">
+  <div class="container">
+    <div class="collections-section__header fade-in">
+      <p class="year-label">Seasonal Collections — 2026</p>
+      <span class="eyebrow">Holiday & Seasonal</span>
+      <h2>Shop by Season</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="coll-grid">
+
+      <!-- Halloween -->
+      <a href="halloween.html" class="coll-card coll-card--live fade-in">
+        <div class="coll-card__img" style="background:linear-gradient(145deg,#1a0800,#5C1F00 60%,#C27447);">
+          <span class="coll-card__emoji">🎃</span>
+        </div>
+        <div class="coll-card__body">
+          <div class="coll-card__season">October</div>
+          <div class="coll-card__name">Halloween</div>
+          <div class="coll-card__desc">Moody tablescapes, atmosphere candles, and the most beautiful serving pieces for a hauntingly good gathering.</div>
+          <div class="coll-card__action">
+            Shop the Collection
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- Thanksgiving -->
+      <a href="collections.html#thanksgiving" class="coll-card coll-card--coming fade-in" id="thanksgiving">
+        <div class="coll-card__img" style="background:linear-gradient(145deg,#3D2B1A,#8B4226 60%,#E8A84C);">
+          <span class="coll-card__emoji">🦃</span>
+        </div>
+        <div class="coll-card__body">
+          <div class="coll-card__season">November · Drops Oct 15</div>
+          <div class="coll-card__name">Thanksgiving</div>
+          <div class="coll-card__desc">Warm layered tablescapes, harvest serving pieces, and pantry staples that make the whole table shine.</div>
+          <div class="coll-card__action">
+            Notify Me
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- Christmas -->
+      <a href="collections.html#christmas" class="coll-card coll-card--coming fade-in" id="christmas">
+        <div class="coll-card__img" style="background:linear-gradient(145deg,#0D2414,#1A4D2E 60%,#B8922A);">
+          <span class="coll-card__emoji">🎄</span>
+        </div>
+        <div class="coll-card__body">
+          <div class="coll-card__season">December · Drops Nov 15</div>
+          <div class="coll-card__name">Christmas</div>
+          <div class="coll-card__desc">The full holiday table — from the centerpiece to the after-dinner aperitif, every piece chosen for warmth and beauty.</div>
+          <div class="coll-card__action">
+            Notify Me
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- New Year's -->
+      <a href="collections.html#new-years" class="coll-card coll-card--coming fade-in" id="new-years">
+        <div class="coll-card__img" style="background:linear-gradient(145deg,#0a0a1a,#1a1a3a 60%,#B8922A);">
+          <span class="coll-card__emoji">🥂</span>
+        </div>
+        <div class="coll-card__body">
+          <div class="coll-card__season">December · Drops Dec 15</div>
+          <div class="coll-card__name">New Year's Eve</div>
+          <div class="coll-card__desc">Midnight glam meets intimate hosting — champagne-ready tables and the most beautiful barware for ringing in the new year.</div>
+          <div class="coll-card__action">
+            Notify Me
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Inline newsletter -->
+    <div class="newsletter-inline fade-in">
+      <div>
+        <h3>Never Miss a Drop</h3>
+        <p>New collections launch every 3 weeks. Get the Halloween Hosting Checklist free when you subscribe.</p>
+      </div>
+      <form onsubmit="return false;">
+        <input type="email" placeholder="your@email.com" aria-label="Email address">
+        <button type="submit">Get the Checklist</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- 2027 Forward Seasons -->
+<section class="collections-section">
+  <div class="container">
+    <div class="collections-section__header fade-in">
+      <p class="year-label">Coming in 2027</p>
+      <span class="eyebrow">The Full Calendar</span>
+      <h2>A Year of Collections</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="coll-grid">
+
+      <!-- Valentine's Day -->
+      <div class="coll-card coll-card--coming fade-in">
+        <div class="coll-card__img" style="background:linear-gradient(145deg,#3D0A12,#8B1A28 60%,#E8607A);">
+          <span class="coll-card__emoji">💝</span>
+        </div>
+        <div class="coll-card__body">
+          <div class="coll-card__season">February</div>
+          <div class="coll-card__name">Valentine's Day</div>
+          <div class="coll-card__desc">Intimate dinner tables, decadent chocolates, and the most beautiful glassware for a date night at home.</div>
+          <div class="coll-card__action">Subscribe to be Notified</div>
+        </div>
+      </div>
+
+      <!-- St. Patrick's Day -->
+      <div class="coll-card coll-card--coming fade-in">
+        <div class="coll-card__img" style="background:linear-gradient(145deg,#0A2D12,#1A5C28 60%,#60B878);">
+          <span class="coll-card__emoji">🍀</span>
+        </div>
+        <div class="coll-card__body">
+          <div class="coll-card__season">March</div>
+          <div class="coll-card__name">St. Patrick's Day</div>
+          <div class="coll-card__desc">Lively table settings, pub-worthy serving boards, and the most charming green linen for your March gathering.</div>
+          <div class="coll-card__action">Subscribe to be Notified</div>
+        </div>
+      </div>
+
+      <!-- Easter -->
+      <div class="coll-card coll-card--coming fade-in">
+        <div class="coll-card__img" style="background:linear-gradient(145deg,#1a1a0a,#4A4A20 50%,#D4E8A0);">
+          <span class="coll-card__emoji">🐣</span>
+        </div>
+        <div class="coll-card__body">
+          <div class="coll-card__season">April</div>
+          <div class="coll-card__name">Easter</div>
+          <div class="coll-card__desc">Soft pastels, florals, and brunch-ready serving pieces for the most beautiful Easter table on the block.</div>
+          <div class="coll-card__action">Subscribe to be Notified</div>
+        </div>
+      </div>
+
+      <!-- Mother's Day -->
+      <div class="coll-card coll-card--coming fade-in">
+        <div class="coll-card__img" style="background:linear-gradient(145deg,#3D1A28,#8B3A5A 60%,#E8A0C0);">
+          <span class="coll-card__emoji">💐</span>
+        </div>
+        <div class="coll-card__body">
+          <div class="coll-card__season">May</div>
+          <div class="coll-card__name">Mother's Day</div>
+          <div class="coll-card__desc">Gift-worthy picks and beautiful brunch setups — a curated guide to everything that says "I thought about this."</div>
+          <div class="coll-card__action">Subscribe to be Notified</div>
+        </div>
+      </div>
+
+      <!-- Father's Day -->
+      <div class="coll-card coll-card--coming fade-in">
+        <div class="coll-card__img" style="background:linear-gradient(145deg,#0a1a2d,#1a3a5c 60%,#4A7AB8);">
+          <span class="coll-card__emoji">🥩</span>
+        </div>
+        <div class="coll-card__body">
+          <div class="coll-card__season">June</div>
+          <div class="coll-card__name">Father's Day</div>
+          <div class="coll-card__desc">Backyard grill picks, premium pantry staples, and the barware he'll actually use — curated for the dad who has taste.</div>
+          <div class="coll-card__action">Subscribe to be Notified</div>
+        </div>
+      </div>
+
+      <!-- Memorial Day -->
+      <div class="coll-card coll-card--coming fade-in">
+        <div class="coll-card__img" style="background:linear-gradient(145deg,#0a0a2d,#1a1a5c 50%,#E84040);">
+          <span class="coll-card__emoji">🌟</span>
+        </div>
+        <div class="coll-card__body">
+          <div class="coll-card__season">May</div>
+          <div class="coll-card__name">Memorial Day Weekend</div>
+          <div class="coll-card__desc">Outdoor entertaining essentials, picnic-ready serving pieces, and the first big backyard gathering of summer.</div>
+          <div class="coll-card__action">Subscribe to be Notified</div>
+        </div>
+      </div>
+
+      <!-- 4th of July -->
+      <div class="coll-card coll-card--coming fade-in">
+        <div class="coll-card__img" style="background:linear-gradient(145deg,#1a0a0a,#5c1a1a 60%,#E84040);">
+          <span class="coll-card__emoji">🎆</span>
+        </div>
+        <div class="coll-card__body">
+          <div class="coll-card__season">July</div>
+          <div class="coll-card__name">4th of July</div>
+          <div class="coll-card__desc">Red, white, and beautiful — patriotic table picks that go beyond paper plates and plastic cups.</div>
+          <div class="coll-card__action">Subscribe to be Notified</div>
+        </div>
+      </div>
+
+      <!-- Labor Day -->
+      <div class="coll-card coll-card--coming fade-in">
+        <div class="coll-card__img" style="background:linear-gradient(145deg,#1a2d0a,#3a5c1a 60%,#90C860);">
+          <span class="coll-card__emoji">☀️</span>
+        </div>
+        <div class="coll-card__body">
+          <div class="coll-card__season">September</div>
+          <div class="coll-card__name">Labor Day / Summer Send-Off</div>
+          <div class="coll-card__desc">The last big cookout of the year — serving pieces, pantry must-haves, and everything for a perfect end-of-summer table.</div>
+          <div class="coll-card__action">Subscribe to be Notified</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Entertaining Collections -->
+<section class="collections-section" style="background:var(--linen);padding:5rem 0;">
+  <div class="container">
+    <div class="collections-section__header fade-in">
+      <span class="eyebrow">Any Time of Year</span>
+      <h2>Entertaining Collections</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="coll-grid">
+      <div class="coll-card coll-card--coming fade-in">
+        <div class="coll-card__img" style="background:linear-gradient(145deg,#1a100a,#5c3a1a 60%,#C27447);">
+          <span class="coll-card__emoji">🕯️</span>
+        </div>
+        <div class="coll-card__body">
+          <div class="coll-card__season">Year-Round</div>
+          <div class="coll-card__name">Dinner Party</div>
+          <div class="coll-card__desc">The elevated weeknight dinner — curated picks for a beautiful table when you want to impress without the stress.</div>
+          <div class="coll-card__action">Coming Soon</div>
+        </div>
+      </div>
+      <div class="coll-card coll-card--coming fade-in">
+        <div class="coll-card__img" style="background:linear-gradient(145deg,#0a1a10,#1a5c30 60%,#90C878);">
+          <span class="coll-card__emoji">🧀</span>
+        </div>
+        <div class="coll-card__body">
+          <div class="coll-card__season">Year-Round</div>
+          <div class="coll-card__name">Cheese & Charcuterie</div>
+          <div class="coll-card__desc">Board-building essentials — the best knives, the most beautiful boards, and the pantry staples that fill the gaps perfectly.</div>
+          <div class="coll-card__action">Coming Soon</div>
+        </div>
+      </div>
+      <div class="coll-card coll-card--coming fade-in">
+        <div class="coll-card__img" style="background:linear-gradient(145deg,#1a0a10,#5c1a30 60%,#E89EB8);">
+          <span class="coll-card__emoji">☕</span>
+        </div>
+        <div class="coll-card__body">
+          <div class="coll-card__season">Year-Round</div>
+          <div class="coll-card__name">Weekend Brunch</div>
+          <div class="coll-card__desc">Lazy Sunday picks — beautiful coffee gear, the best pantry staples for a slow morning, and linen that feels as good as it looks.</div>
+          <div class="coll-card__action">Coming Soon</div>
+        </div>
+      </div>
+      <div class="coll-card coll-card--coming fade-in">
+        <div class="coll-card__img" style="background:linear-gradient(145deg,#0a0a1a,#1a1a5c 60%,#9090E8);">
+          <span class="coll-card__emoji">🎁</span>
+        </div>
+        <div class="coll-card__body">
+          <div class="coll-card__season">Year-Round</div>
+          <div class="coll-card__name">Gifting Guide</div>
+          <div class="coll-card__desc">The picks people actually want — organized by budget and personality, from the host to the home chef to the person who has everything.</div>
+          <div class="coll-card__action">Coming Soon</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <span class="footer__logo">Savor & Simplify</span>
+      <p>Seasonal collections curated by Laura. Beautiful picks for every occasion — no searching required. Affiliate links, no extra cost to you.</p>
+      <div class="footer__social">
+        <a href="#" class="footer__social-link" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" class="footer__social-link" aria-label="Pinterest">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.852 0 1.265.64 1.265 1.408 0 .858-.546 2.14-.828 3.33-.236.995.499 1.806 1.476 1.806 1.772 0 3.137-1.868 3.137-4.564 0-2.387-1.715-4.057-4.163-4.057-2.838 0-4.503 2.127-4.503 4.325 0 .856.33 1.774.741 2.276a.3.3 0 0 1 .069.286c-.076.313-.244.995-.277 1.134-.044.183-.146.222-.336.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+        </a>
+        <a href="#" class="footer__social-link" aria-label="TikTok">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="footer__col-title">Collections</div>
+      <ul class="footer__links">
+        <li><a href="halloween.html">🎃 Halloween</a></li>
+        <li><a href="collections.html#thanksgiving">Thanksgiving</a></li>
+        <li><a href="collections.html#christmas">Christmas</a></li>
+        <li><a href="collections.html#new-years">New Year's</a></li>
+        <li><a href="collections.html">All Collections</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__col-title">About</div>
+      <ul class="footer__links">
+        <li><a href="about.html">About Laura</a></li>
+        <li><a href="about.html#values">How We Curate</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#">Affiliate Disclosure</a></li>
+        <li><a href="shop.html">Browse All Picks</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__col-title">Connect</div>
+      <ul class="footer__links">
+        <li><a href="#">Newsletter</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Pinterest</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="contact.html">Get in Touch</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <p>© 2026 Savor & Simplify. All rights reserved. · <a href="#" style="color:inherit">Affiliate Disclosure</a></p>
+    <div class="footer__bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

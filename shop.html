@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — Savor & Simplify</title>
+  <meta name="description" content="Browse our curated collection of pantry staples, kitchen tools, and home goods.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+    .img-honey    { background: linear-gradient(145deg,#E8A84C,#C27447); }
+    .img-salt     { background: linear-gradient(145deg,#8B9E6A,#C8D4AE); }
+    .img-oil      { background: linear-gradient(145deg,#3D4F28,#7A8A52); }
+    .img-pasta    { background: linear-gradient(145deg,#8B4226,#C27447); }
+    .img-apron    { background: linear-gradient(145deg,#6B4E35,#B8922A); }
+    .img-ceramic  { background: linear-gradient(145deg,#C8D4AE,#8B9E6A); }
+    .img-candle   { background: linear-gradient(145deg,#E8DCC8,#D4C5A9); }
+    .img-towel    { background: linear-gradient(145deg,#5C6B3A,#A8B98A); }
+    .img-vinegar  { background: linear-gradient(145deg,#8B4226,#E8A84C); }
+    .img-board    { background: linear-gradient(145deg,#6B4E35,#C27447); }
+    .img-mug      { background: linear-gradient(145deg,#5C6B3A,#EDE5D0); }
+    .img-basket   { background: linear-gradient(145deg,#B8922A,#E8DCC8); }
+  </style>
+</head>
+<body>
+
+<div class="announcement">🎃 Halloween Collection Now Live &nbsp;·&nbsp; Affiliate picks, curated with care &nbsp;·&nbsp; No extra cost to you</div>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">Savor <span>&</span> Simplify</a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="shop.html" class="active">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="#" class="nav__icon-btn">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Search
+      </a>
+    </div>
+    <button class="nav__hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<nav class="nav__mobile" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="collections.html">Collections</a>
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <div class="nav__mobile-footer">
+    <a href="halloween.html" class="btn btn--olive">Shop Halloween</a>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__eyebrow eyebrow">The Full Collection</div>
+    <h1>Shop Everything</h1>
+    <p class="page-hero__sub">73 thoughtfully chosen products across pantry, kitchen, and home — each one passing our sourcing standards.</p>
+  </div>
+</section>
+
+<!-- Shop Layout -->
+<div class="shop-layout">
+
+  <!-- Sidebar Filters -->
+  <aside class="shop-sidebar">
+
+    <div class="shop-filter">
+      <div class="shop-filter__title">Category</div>
+      <div class="shop-filter__options">
+        <label class="shop-filter__option">
+          <input type="checkbox" value="pantry"> <span>Pantry (24)</span>
+        </label>
+        <label class="shop-filter__option">
+          <input type="checkbox" value="kitchen"> <span>Kitchen (31)</span>
+        </label>
+        <label class="shop-filter__option">
+          <input type="checkbox" value="home"> <span>Home (18)</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="shop-filter">
+      <div class="shop-filter__title">Price Range</div>
+      <div class="shop-filter__options" style="gap:.5rem">
+        <label class="shop-filter__option">
+          <input type="checkbox" value="under25"> <span>Under $25</span>
+        </label>
+        <label class="shop-filter__option">
+          <input type="checkbox" value="25to50"> <span>$25 – $50</span>
+        </label>
+        <label class="shop-filter__option">
+          <input type="checkbox" value="50to100"> <span>$50 – $100</span>
+        </label>
+        <label class="shop-filter__option">
+          <input type="checkbox" value="over100"> <span>$100+</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="shop-filter">
+      <div class="shop-filter__title">Special</div>
+      <div class="shop-filter__options">
+        <label class="shop-filter__option">
+          <input type="checkbox" value="bestseller"> <span>Bestsellers</span>
+        </label>
+        <label class="shop-filter__option">
+          <input type="checkbox" value="new"> <span>New Arrivals</span>
+        </label>
+        <label class="shop-filter__option">
+          <input type="checkbox" value="gift"> <span>Gift Ready</span>
+        </label>
+        <label class="shop-filter__option">
+          <input type="checkbox" value="organic"> <span>Certified Organic</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="shop-filter">
+      <div class="shop-filter__title">Origin</div>
+      <div class="shop-filter__options">
+        <label class="shop-filter__option">
+          <input type="checkbox"> <span>Made in USA</span>
+        </label>
+        <label class="shop-filter__option">
+          <input type="checkbox"> <span>Imported (Artisan)</span>
+        </label>
+        <label class="shop-filter__option">
+          <input type="checkbox"> <span>Small-Batch</span>
+        </label>
+      </div>
+    </div>
+
+    <a href="shop.html" class="btn btn--ghost" style="width:100%;justify-content:center;margin-top:.5rem">Clear Filters</a>
+  </aside>
+
+  <!-- Main Grid -->
+  <main>
+    <div class="shop-main__header">
+      <span class="shop-main__count">12 products</span>
+      <div class="shop-main__sort">
+        <label for="sort-select">Sort by</label>
+        <select id="sort-select">
+          <option>Featured</option>
+          <option>Price: Low to High</option>
+          <option>Price: High to Low</option>
+          <option>Newest</option>
+          <option>Best Selling</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="shop-grid">
+
+      <!-- 1 -->
+      <article class="product-card fade-in" data-category="pantry">
+        <div class="product-card__image">
+          <div class="product-card__image-bg img-honey" style="display:flex;align-items:center;justify-content:center;">
+            <svg width="60" height="60" viewBox="0 0 52 52" fill="none" style="opacity:.3"><polygon points="26,4 48,17 48,35 26,48 4,35 4,17" stroke="white" stroke-width="2" fill="none"/><polygon points="26,14 38,21 38,31 26,38 14,31 14,21" fill="white"/></svg>
+          </div>
+          <span class="product-card__badge">Bestseller</span>
+          <button class="product-card__wishlist" aria-label="Add to wishlist"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__cat">Pantry</div>
+          <h3 class="product-card__name">Wildflower Honey</h3>
+          <p class="product-card__desc">Raw, unfiltered clover and wildflower honey from Vermont family apiaries.</p>
+        </div>
+        <div class="product-card__footer">
+          <span class="product-card__price">$18</span>
+          <button class="product-card__add" aria-label="Add to cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="product-card fade-in" data-category="pantry">
+        <div class="product-card__image">
+          <div class="product-card__image-bg img-salt" style="display:flex;align-items:center;justify-content:center;">
+            <svg width="56" height="56" viewBox="0 0 52 52" fill="none" style="opacity:.35"><circle cx="26" cy="26" r="20" stroke="white" stroke-width="2" fill="none"/><circle cx="26" cy="26" r="10" fill="white"/></svg>
+          </div>
+          <button class="product-card__wishlist" aria-label="Add to wishlist"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__cat">Pantry</div>
+          <h3 class="product-card__name">Herbed Sea Salt Trio</h3>
+          <p class="product-card__desc">Rosemary, smoked paprika, and lemon-thyme finishing salts from the Maine coast.</p>
+        </div>
+        <div class="product-card__footer">
+          <span class="product-card__price">$24</span>
+          <button class="product-card__add" aria-label="Add to cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="product-card fade-in" data-category="pantry">
+        <div class="product-card__image">
+          <div class="product-card__image-bg img-oil" style="display:flex;align-items:center;justify-content:center;">
+            <svg width="48" height="96" viewBox="0 0 80 160" fill="none" style="opacity:.3"><path d="M40 155 L40 10" stroke="white" stroke-width="2"/><path d="M40 120 Q18 100 24 75 Q38 84 40 120Z" fill="white"/><path d="M40 120 Q62 100 56 75 Q42 84 40 120Z" fill="white"/><path d="M40 80 Q18 60 24 35 Q38 44 40 80Z" fill="white"/><path d="M40 80 Q62 60 56 35 Q42 44 40 80Z" fill="white"/></svg>
+          </div>
+          <span class="product-card__badge">New Arrival</span>
+          <button class="product-card__wishlist" aria-label="Add to wishlist"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__cat">Pantry</div>
+          <h3 class="product-card__name">Artisan Olive Oil</h3>
+          <p class="product-card__desc">Cold-pressed extra virgin from a California Central Valley family grove.</p>
+        </div>
+        <div class="product-card__footer">
+          <span class="product-card__price">$32</span>
+          <button class="product-card__add" aria-label="Add to cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="product-card fade-in" data-category="pantry">
+        <div class="product-card__image">
+          <div class="product-card__image-bg img-pasta" style="display:flex;align-items:center;justify-content:center;">
+            <svg width="64" height="64" viewBox="0 0 72 72" fill="none" style="opacity:.3"><circle cx="36" cy="36" r="28" stroke="white" stroke-width="2" fill="none"/><circle cx="36" cy="36" r="18" stroke="white" stroke-width="1.5" fill="none"/><circle cx="36" cy="36" r="8" fill="white"/></svg>
+          </div>
+          <button class="product-card__wishlist" aria-label="Add to wishlist"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__cat">Pantry</div>
+          <h3 class="product-card__name">Ancient Grain Pasta</h3>
+          <p class="product-card__desc">Emmer, einkorn, and spelt, stone-milled and bronze-die cut. Set of 4 varieties.</p>
+        </div>
+        <div class="product-card__footer">
+          <span class="product-card__price">$22</span>
+          <button class="product-card__add" aria-label="Add to cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="product-card fade-in" data-category="pantry">
+        <div class="product-card__image">
+          <div class="product-card__image-bg img-vinegar" style="display:flex;align-items:center;justify-content:center;">
+            <svg width="44" height="80" viewBox="0 0 44 80" fill="none" style="opacity:.3"><path d="M22 75 C22 75 8 68 8 50 L8 20 C8 20 8 10 22 10 C36 10 36 20 36 20 L36 50 C36 68 22 75 22 75Z" fill="white"/></svg>
+          </div>
+          <button class="product-card__wishlist" aria-label="Add to wishlist"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__cat">Pantry</div>
+          <h3 class="product-card__name">Barrel-Aged Vinegar</h3>
+          <p class="product-card__desc">Apple cider vinegar aged 24 months in charred oak. Complex, smooth, and alive with enzymes.</p>
+        </div>
+        <div class="product-card__footer">
+          <span class="product-card__price">$26</span>
+          <button class="product-card__add" aria-label="Add to cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="product-card fade-in" data-category="kitchen">
+        <div class="product-card__image">
+          <div class="product-card__image-bg img-apron" style="display:flex;align-items:center;justify-content:center;">
+            <svg width="52" height="72" viewBox="0 0 60 80" fill="none" style="opacity:.3"><rect x="10" y="5" width="40" height="10" rx="3" fill="white"/><path d="M5 15 H55 L50 75 H10 Z" fill="white" opacity=".9"/><rect x="20" y="30" width="20" height="14" rx="2" fill="none" stroke="rgba(0,0,0,.3)" stroke-width="1.5"/></svg>
+          </div>
+          <button class="product-card__wishlist" aria-label="Add to wishlist"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__cat">Kitchen</div>
+          <h3 class="product-card__name">Linen Apron</h3>
+          <p class="product-card__desc">Heavyweight washed linen in natural oat. Adjustable neck strap, roomy front pocket.</p>
+        </div>
+        <div class="product-card__footer">
+          <span class="product-card__price">$45</span>
+          <button class="product-card__add" aria-label="Add to cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        </div>
+      </article>
+
+      <!-- 7 -->
+      <article class="product-card fade-in" data-category="kitchen">
+        <div class="product-card__image">
+          <div class="product-card__image-bg img-ceramic" style="display:flex;align-items:center;justify-content:center;">
+            <svg width="72" height="56" viewBox="0 0 80 60" fill="none" style="opacity:.35"><ellipse cx="40" cy="50" rx="32" ry="8" fill="rgba(92,107,58,.3)"/><path d="M16 20 Q12 50 16 52 H64 Q68 50 64 20 Q60 8 40 8 Q20 8 16 20Z" fill="white" opacity=".8"/><ellipse cx="40" cy="20" rx="24" ry="12" fill="none" stroke="#6B4E35" stroke-width="1.5" opacity=".4"/></svg>
+          </div>
+          <span class="product-card__badge">Handmade</span>
+          <button class="product-card__wishlist" aria-label="Add to wishlist"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__cat">Kitchen</div>
+          <h3 class="product-card__name">Stoneware Bowl Set</h3>
+          <p class="product-card__desc">Hand-thrown in sage glaze. Microwave and dishwasher safe. Set of 4 nesting bowls.</p>
+        </div>
+        <div class="product-card__footer">
+          <span class="product-card__price">$85</span>
+          <button class="product-card__add" aria-label="Add to cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        </div>
+      </article>
+
+      <!-- 8 -->
+      <article class="product-card fade-in" data-category="kitchen">
+        <div class="product-card__image">
+          <div class="product-card__image-bg img-board" style="display:flex;align-items:center;justify-content:center;">
+            <svg width="80" height="50" viewBox="0 0 80 50" fill="none" style="opacity:.3"><rect x="4" y="10" width="60" height="32" rx="4" fill="white"/><rect x="64" y="18" width="14" height="8" rx="2" fill="white" opacity=".7"/><line x1="20" y1="10" x2="20" y2="42" stroke="rgba(0,0,0,.2)" stroke-width="1"/><line x1="36" y1="10" x2="36" y2="42" stroke="rgba(0,0,0,.2)" stroke-width="1"/></svg>
+          </div>
+          <button class="product-card__wishlist" aria-label="Add to wishlist"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__cat">Kitchen</div>
+          <h3 class="product-card__name">Walnut Charcuterie Board</h3>
+          <p class="product-card__desc">End-grain walnut with integrated juice groove, hand-oiled with food-safe beeswax finish.</p>
+        </div>
+        <div class="product-card__footer">
+          <span class="product-card__price">$68</span>
+          <button class="product-card__add" aria-label="Add to cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        </div>
+      </article>
+
+      <!-- 9 -->
+      <article class="product-card fade-in" data-category="home">
+        <div class="product-card__image">
+          <div class="product-card__image-bg img-candle" style="display:flex;align-items:center;justify-content:center;">
+            <svg width="44" height="72" viewBox="0 0 48 80" fill="none" style="opacity:.4"><path d="M24 10 C24 10 28 4 24 0 C20 4 24 10 24 10Z" fill="#C27447"/><line x1="24" y1="10" x2="24" y2="16" stroke="#6B4E35" stroke-width="1.5"/><rect x="8" y="16" width="32" height="56" rx="4" fill="none" stroke="#6B4E35" stroke-width="2"/><rect x="14" y="22" width="20" height="4" rx="2" fill="#6B4E35" opacity=".3"/></svg>
+          </div>
+          <span class="product-card__badge">Bestseller</span>
+          <button class="product-card__wishlist" aria-label="Add to wishlist"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__cat">Home</div>
+          <h3 class="product-card__name">Beeswax Candle Set</h3>
+          <p class="product-card__desc">Hand-poured beeswax pillars with cedarwood & clove. Set of 3, varying heights.</p>
+        </div>
+        <div class="product-card__footer">
+          <span class="product-card__price">$36</span>
+          <button class="product-card__add" aria-label="Add to cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        </div>
+      </article>
+
+      <!-- 10 -->
+      <article class="product-card fade-in" data-category="home">
+        <div class="product-card__image">
+          <div class="product-card__image-bg img-towel" style="display:flex;align-items:center;justify-content:center;">
+            <svg width="64" height="46" viewBox="0 0 70 50" fill="none" style="opacity:.3"><rect x="5" y="5" width="60" height="40" rx="4" fill="white"/><line x1="5" y1="14" x2="65" y2="14" stroke="#5C6B3A" stroke-width="1.5"/><line x1="5" y1="36" x2="65" y2="36" stroke="#5C6B3A" stroke-width="1.5"/><rect x="5" y="14" width="8" height="22" fill="#5C6B3A" opacity=".5"/></svg>
+          </div>
+          <button class="product-card__wishlist" aria-label="Add to wishlist"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__cat">Home</div>
+          <h3 class="product-card__name">Linen Tea Towels</h3>
+          <p class="product-card__desc">Set of 3 heavyweight linen towels. Softens beautifully with every wash.</p>
+        </div>
+        <div class="product-card__footer">
+          <span class="product-card__price">$28</span>
+          <button class="product-card__add" aria-label="Add to cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        </div>
+      </article>
+
+      <!-- 11 -->
+      <article class="product-card fade-in" data-category="kitchen">
+        <div class="product-card__image">
+          <div class="product-card__image-bg img-mug" style="display:flex;align-items:center;justify-content:center;">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="opacity:.35"><path d="M10 16 Q8 52 12 54 H44 Q48 52 46 16Z" fill="white"/><path d="M44 24 Q56 24 56 36 Q56 48 44 48" stroke="white" stroke-width="3" fill="none"/><ellipse cx="27" cy="16" rx="18" ry="7" fill="none" stroke="rgba(92,107,58,.4)" stroke-width="2"/></svg>
+          </div>
+          <span class="product-card__badge">Handmade</span>
+          <button class="product-card__wishlist" aria-label="Add to wishlist"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__cat">Kitchen</div>
+          <h3 class="product-card__name">Ceramic Mug Set</h3>
+          <p class="product-card__desc">Hand-thrown mugs in a warm sage-to-cream dip glaze. 12 oz, set of 2.</p>
+        </div>
+        <div class="product-card__footer">
+          <span class="product-card__price">$52</span>
+          <button class="product-card__add" aria-label="Add to cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        </div>
+      </article>
+
+      <!-- 12 -->
+      <article class="product-card fade-in" data-category="home">
+        <div class="product-card__image">
+          <div class="product-card__image-bg img-basket" style="display:flex;align-items:center;justify-content:center;">
+            <svg width="80" height="64" viewBox="0 0 80 64" fill="none" style="opacity:.3"><path d="M10 30 Q8 58 12 60 H68 Q72 58 70 30Z" fill="white"/><ellipse cx="40" cy="30" rx="30" ry="10" fill="none" stroke="white" stroke-width="2"/><path d="M20 30 Q20 8 40 8 Q60 8 60 30" stroke="white" stroke-width="2" fill="none"/></svg>
+          </div>
+          <span class="product-card__badge">New Arrival</span>
+          <button class="product-card__wishlist" aria-label="Add to wishlist"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__cat">Home</div>
+          <h3 class="product-card__name">Woven Market Basket</h3>
+          <p class="product-card__desc">Hand-woven seagrass with leather handles. Perfect for farmers market or everyday storage.</p>
+        </div>
+        <div class="product-card__footer">
+          <span class="product-card__price">$58</span>
+          <button class="product-card__add" aria-label="Add to cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        </div>
+      </article>
+
+    </div>
+  </main>
+</div>
+
+<!-- Newsletter strip -->
+<section class="newsletter" style="padding:4rem 0;">
+  <div class="newsletter__inner">
+    <span class="eyebrow">Stay in the Know</span>
+    <h2 style="font-size:2.25rem">New arrivals, first.</h2>
+    <form class="newsletter__form" onsubmit="return false;">
+      <input class="newsletter__input" type="email" placeholder="your@email.com" aria-label="Email address">
+      <button class="newsletter__submit" type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <span class="footer__logo">Savor & Simplify</span>
+      <p>Curated pantry staples, kitchen tools, and home goods for a life well-lived.</p>
+      <div class="footer__social">
+        <a href="#" class="footer__social-link" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="footer__social-link" aria-label="Pinterest"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.852 0 1.265.64 1.265 1.408 0 .858-.546 2.14-.828 3.33-.236.995.499 1.806 1.476 1.806 1.772 0 3.137-1.868 3.137-4.564 0-2.387-1.715-4.057-4.163-4.057-2.838 0-4.503 2.127-4.503 4.325 0 .856.33 1.774.741 2.276a.3.3 0 0 1 .069.286c-.076.313-.244.995-.277 1.134-.044.183-.146.222-.336.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer__col-title">Shop</div>
+      <ul class="footer__links"><li><a href="shop.html?cat=pantry">Pantry</a></li><li><a href="shop.html?cat=kitchen">Kitchen</a></li><li><a href="shop.html?cat=home">Home</a></li><li><a href="shop.html">Gift Sets</a></li></ul>
+    </div>
+    <div>
+      <div class="footer__col-title">Company</div>
+      <ul class="footer__links"><li><a href="about.html">Our Story</a></li><li><a href="contact.html">Contact</a></li><li><a href="#">Wholesale</a></li></ul>
+    </div>
+    <div>
+      <div class="footer__col-title">Help</div>
+      <ul class="footer__links"><li><a href="#">Shipping & Returns</a></li><li><a href="#">FAQs</a></li><li><a href="contact.html">Get in Touch</a></li></ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <p>© 2026 Savor & Simplify. All rights reserved.</p>
+    <div class="footer__bottom-links"><a href="#">Privacy</a><a href="#">Terms</a></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

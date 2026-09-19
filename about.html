@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story — Savor & Simplify</title>
+  <meta name="description" content="The story behind Savor & Simplify — why we started, what we believe, and how we choose every product.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .fade-in { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+    .img-story-1 { background: linear-gradient(145deg,#EDE5D0,#C8D4AE 60%,#8B9E6A 100%); }
+    .img-story-2 { background: linear-gradient(145deg,#3D2B1A,#6B4E35 50%,#B8922A 100%); }
+    .img-story-3 { background: linear-gradient(145deg,#5C6B3A,#A8B98A 60%,#EDE5D0 100%); }
+    .img-team-1  { background: linear-gradient(145deg,#5C6B3A,#A8B98A); }
+    .img-team-2  { background: linear-gradient(145deg,#C27447,#E8A84C); }
+    .img-team-3  { background: linear-gradient(145deg,#3D2B1A,#6B4E35); }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      padding: 3.5rem 0;
+      border-top: 1px solid var(--sand-light);
+      border-bottom: 1px solid var(--sand-light);
+      margin: 3rem 0;
+    }
+    .stat { text-align: center; }
+    .stat__number { font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--olive); line-height: 1; }
+    .stat__label { font-size: .8rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--espresso-lt); margin-top: .5rem; }
+    @media (max-width: 768px) {
+      .stat-row { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="announcement">🎃 Halloween Collection Now Live &nbsp;·&nbsp; Affiliate picks, curated with care &nbsp;·&nbsp; No extra cost to you</div>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">Savor <span>&</span> Simplify</a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="shop.html" class="nav__icon-btn">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Search
+      </a>
+    </div>
+    <button class="nav__hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<nav class="nav__mobile" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="collections.html">Collections</a>
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <div class="nav__mobile-footer">
+    <a href="halloween.html" class="btn btn--olive">Shop Halloween</a>
+  </div>
+</nav>
+
+<!-- About Hero -->
+<section class="about-hero">
+  <svg class="about-hero__botanical" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M100 290 L100 20" stroke="white" stroke-width="3"/>
+    <path d="M100 240 Q55 210 64 170 Q92 185 100 240Z" fill="white"/>
+    <path d="M100 240 Q145 210 136 170 Q108 185 100 240Z" fill="white"/>
+    <path d="M100 185 Q52 152 64 108 Q92 123 100 185Z" fill="white"/>
+    <path d="M100 185 Q148 152 136 108 Q108 123 100 185Z" fill="white"/>
+    <path d="M100 125 Q56 95 66 55 Q92 68 100 125Z" fill="white"/>
+    <path d="M100 125 Q144 95 134 55 Q108 68 100 125Z" fill="white"/>
+  </svg>
+  <div class="about-hero__inner">
+    <span class="eyebrow">About Laura</span>
+    <h1>The Dinner Party That Started It All.</h1>
+    <p class="about-hero__sub">Savor & Simplify is a curated guide to the products that make every season feel a little more special — no scrolling through hundreds of options required.</p>
+  </div>
+</section>
+
+<!-- Origin Story -->
+<section class="about-section">
+  <div class="container">
+    <div class="about-split fade-in">
+      <div class="about-split__content">
+        <span class="eyebrow">How It Began</span>
+        <h2>One Dinner Party. A Hundred Questions.</h2>
+        <div class="divider"></div>
+        <p>In October 2022, Laura spent an entire evening putting together a Halloween tablescape for a neighborhood dinner party. By the end of the night, every single guest had their phone out asking where each piece came from — the candlesticks, the linen napkins, the smoked salt on the cheese board.</p>
+        <p>She spent the next hour texting product links. That frustration — beautiful objects with no easy way to discover and share them — became a newsletter. The newsletter grew into Savor & Simplify: a curated guide organized around seasons, occasions, and the moments that make a home feel truly lived in.</p>
+        <p>Every pick is something Laura has researched, tested, or styled herself. She earns a small commission when you shop through her links, at no extra cost to you. That's what keeps the lights on and the collections coming.</p>
+      </div>
+      <div class="about-split__visual">
+        <div class="about-split__image img-story-1" style="display:flex;align-items:center;justify-content:center;">
+          <svg width="100" height="180" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:.2">
+            <path d="M100 290 L100 20" stroke="#5C6B3A" stroke-width="3"/>
+            <path d="M100 240 Q55 210 64 170 Q92 185 100 240Z" fill="#5C6B3A"/>
+            <path d="M100 240 Q145 210 136 170 Q108 185 100 240Z" fill="#5C6B3A"/>
+            <path d="M100 185 Q52 152 64 108 Q92 123 100 185Z" fill="#5C6B3A"/>
+            <path d="M100 185 Q148 152 136 108 Q108 123 100 185Z" fill="#5C6B3A"/>
+            <path d="M100 125 Q56 95 66 55 Q92 68 100 125Z" fill="#5C6B3A"/>
+            <path d="M100 125 Q144 95 134 55 Q108 68 100 125Z" fill="#5C6B3A"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-row fade-in">
+      <div class="stat">
+        <div class="stat__number">200+</div>
+        <div class="stat__label">Curated Picks</div>
+      </div>
+      <div class="stat">
+        <div class="stat__number">12</div>
+        <div class="stat__label">Seasonal Collections</div>
+      </div>
+      <div class="stat">
+        <div class="stat__number">8.5k+</div>
+        <div class="stat__label">Newsletter Readers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How We Curate -->
+<section class="about-section about-section--alt">
+  <div class="container">
+    <div class="about-split about-split--reverse fade-in">
+      <div class="about-split__visual">
+        <div class="about-split__image img-story-2" style="display:flex;align-items:center;justify-content:center;">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:.2">
+            <circle cx="40" cy="40" r="35" stroke="white" stroke-width="2"/>
+            <circle cx="40" cy="40" r="22" stroke="white" stroke-width="1.5"/>
+            <circle cx="40" cy="40" r="10" fill="white"/>
+          </svg>
+        </div>
+      </div>
+      <div class="about-split__content">
+        <span class="eyebrow">The Curation Process</span>
+        <h2>Every Pick Earns Its Place.</h2>
+        <div class="divider"></div>
+        <p>For every product that makes it into a collection, Laura researches dozens that don't. She considers quality, styling versatility, value at each price tier, and whether it photographs the way it actually looks in person.</p>
+        <p>Collections are organized into three tiers — a Simplified Pick (best value), a Signature Pick (the one she'd reach for herself), and a Splurge Pick (when you really want to impress). You choose what fits your budget; every tier is worth it.</p>
+        <p>Disclosure: Savor & Simplify participates in affiliate programs including Amazon Associates, Caspari, and others. When you click a link and make a purchase, Laura earns a small commission at no additional cost to you. She only recommends things she genuinely loves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="about-section" id="values">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:1rem;" class="fade-in">
+      <span class="eyebrow">What We Stand For</span>
+      <h2>Our Values</h2>
+      <div class="divider divider--center"></div>
+    </div>
+    <div class="values-grid">
+      <div class="value-card fade-in">
+        <div class="value-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3>Honest Curation</h3>
+        <p>Every pick is something Laura has genuinely researched, tested, or styled. No sponsored placements. No brands paying to be featured. If it's here, she loves it.</p>
+      </div>
+      <div class="value-card fade-in">
+        <div class="value-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3>Three Tiers, Every Time</h3>
+        <p>Good, Better, Best. Every category has a budget pick, a signature pick, and a splurge pick — so you can build the look you want at whatever you can spend.</p>
+      </div>
+      <div class="value-card fade-in">
+        <div class="value-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Seasonal Always</h3>
+        <p>A new collection drops every three weeks. The calendar runs Halloween through Labor Day — over a dozen seasons, every year, in one place.</p>
+      </div>
+      <div class="value-card fade-in">
+        <div class="value-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+        </div>
+        <h3>Radically Transparent</h3>
+        <p>Affiliate links are disclosed on every page, every pick. Laura earns a small commission when you shop through her links. No extra cost to you — ever.</p>
+      </div>
+      <div class="value-card fade-in">
+        <div class="value-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Community First</h3>
+        <p>The newsletter is where Laura's most personal picks live — including items that don't make the public collections. It's free, and it ships twice a month.</p>
+      </div>
+      <div class="value-card fade-in">
+        <div class="value-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Built to Last</h3>
+        <p>Laura doesn't recommend things she'd replace next season. Every pick has to earn its place in someone's home for years — not just for the photo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="about-section about-section--alt">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:1rem;" class="fade-in">
+      <span class="eyebrow">The People</span>
+      <h2>Who We Are</h2>
+      <div class="divider divider--center"></div>
+    </div>
+    <div class="team-grid">
+      <div class="team-card fade-in">
+        <div class="team-card__photo img-team-1" style="display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:var(--font-display);font-size:4rem;font-weight:700;color:rgba(255,255,255,.6)">L</span>
+        </div>
+        <h3 class="team-card__name">Laura</h3>
+        <div class="team-card__role">Founder & Chief Curator</div>
+        <p class="team-card__bio">Former event stylist turned obsessive researcher. Laura has styled over 200 tablescapes and can tell you exactly which linen napkin photographs best under warm candlelight. She lives for the moment a table comes together. Also: too many cookbooks.</p>
+      </div>
+      <div class="team-card fade-in">
+        <div class="team-card__photo img-team-2" style="display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:var(--font-display);font-size:4rem;font-weight:700;color:rgba(255,255,255,.6)">M</span>
+        </div>
+        <h3 class="team-card__name">Marcus Webb</h3>
+        <div class="team-card__role">Head of Sourcing</div>
+        <p class="team-card__bio">Marcus spent a decade as a supply chain auditor for fair-trade cooperatives. He knows where the corners get cut and makes sure we never cut them. He grows his own hot peppers, badly.</p>
+      </div>
+      <div class="team-card fade-in">
+        <div class="team-card__photo img-team-3" style="display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:var(--font-display);font-size:4rem;font-weight:700;color:rgba(255,255,255,.6)">R</span>
+        </div>
+        <h3 class="team-card__name">Rosa Delgado</h3>
+        <div class="team-card__role">Community & Content</div>
+        <p class="team-card__bio">Rosa writes the newsletter, manages our producer relationships, and is the reason our packaging looks the way it does. She also bakes a legendary focaccia, which she claims is not for sale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section style="padding:6rem 0;text-align:center;background:var(--cream);">
+  <div class="container fade-in">
+    <span class="eyebrow">Ready to explore?</span>
+    <h2 style="margin-top:.75rem">See What's Live Now</h2>
+    <div class="divider divider--center"></div>
+    <p style="max-width:46ch;margin:.5rem auto 2rem;font-size:1.0625rem;color:var(--espresso-lt);line-height:1.8">The Halloween Collection is live with 28 curated picks, three budget tiers, and a free hosting checklist when you subscribe.</p>
+    <a href="halloween.html" class="btn btn--primary">Shop Halloween</a>
+    <a href="collections.html" class="btn btn--outline" style="margin-left:1rem">All Collections</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <span class="footer__logo">Savor & Simplify</span>
+      <p>Curated pantry staples, kitchen tools, and home goods for a life well-lived.</p>
+      <div class="footer__social">
+        <a href="#" class="footer__social-link" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="footer__social-link" aria-label="Pinterest"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer__col-title">Shop</div>
+      <ul class="footer__links"><li><a href="shop.html">Pantry</a></li><li><a href="shop.html">Kitchen</a></li><li><a href="shop.html">Home</a></li><li><a href="shop.html">Gift Sets</a></li></ul>
+    </div>
+    <div>
+      <div class="footer__col-title">Company</div>
+      <ul class="footer__links"><li><a href="about.html">Our Story</a></li><li><a href="contact.html">Contact</a></li><li><a href="#">Wholesale</a></li></ul>
+    </div>
+    <div>
+      <div class="footer__col-title">Help</div>
+      <ul class="footer__links"><li><a href="#">Shipping & Returns</a></li><li><a href="#">FAQs</a></li><li><a href="contact.html">Get in Touch</a></li></ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <p>© 2026 Savor & Simplify. All rights reserved.</p>
+    <div class="footer__bottom-links"><a href="#">Privacy</a><a href="#">Terms</a></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

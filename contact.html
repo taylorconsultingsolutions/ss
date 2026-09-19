@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Savor & Simplify</title>
+  <meta name="description" content="Get in touch with the Savor & Simplify team. Questions, wholesale inquiries, or just a hello.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    .contact-hero {
+      background: var(--linen);
+      padding: 5rem 0 4rem;
+      border-bottom: 1px solid var(--sand-light);
+    }
+    .contact-hero .container { text-align: center; }
+    .contact-hero h1 { margin-top: .75rem; }
+    .contact-hero p {
+      font-size: 1.0625rem;
+      color: var(--espresso-lt);
+      margin-top: .875rem;
+      max-width: 52ch;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.75;
+    }
+
+    .faq-section {
+      padding: 5rem 0;
+      background: var(--linen);
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .faq-item {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-item h4 {
+      font-size: 1.125rem;
+      margin-bottom: .625rem;
+    }
+    .faq-item p {
+      font-size: .9375rem;
+      color: var(--espresso-lt);
+      line-height: 1.7;
+    }
+    @media (max-width: 768px) {
+      .faq-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="announcement">🎃 Halloween Collection Now Live &nbsp;·&nbsp; Affiliate picks, curated with care &nbsp;·&nbsp; No extra cost to you</div>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">Savor <span>&</span> Simplify</a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="shop.html" class="nav__icon-btn">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Search
+      </a>
+    </div>
+    <button class="nav__hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<nav class="nav__mobile" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="collections.html">Collections</a>
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <div class="nav__mobile-footer">
+    <a href="halloween.html" class="btn btn--olive">Shop Halloween</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="contact-hero">
+  <div class="container">
+    <span class="eyebrow">Get in Touch</span>
+    <h1>We'd Love to Hear from You</h1>
+    <p>Questions about an order, a product you'd like us to carry, wholesale opportunities, or just a kind note — our inbox is always open.</p>
+  </div>
+</section>
+
+<!-- Contact Layout -->
+<div class="contact-layout">
+
+  <!-- Info panel -->
+  <div class="contact-info fade-in">
+    <div>
+      <span class="eyebrow">Contact Details</span>
+      <h2 style="margin-top:.75rem">Say Hello</h2>
+      <div class="divider"></div>
+      <p>We read every message personally and aim to respond within one business day. For urgent order issues, include your order number in the subject line.</p>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-detail__icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div>
+        <div class="contact-detail__label">Email</div>
+        <div class="contact-detail__value">hello@savorandsimplify.com</div>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-detail__icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <div>
+        <div class="contact-detail__label">Phone</div>
+        <div class="contact-detail__value">(802) 555-0192</div>
+        <div style="font-size:.8rem;color:var(--sand);margin-top:.2rem">Mon–Fri, 9am–5pm ET</div>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-detail__icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </div>
+      <div>
+        <div class="contact-detail__label">Instagram</div>
+        <div class="contact-detail__value">@savorandsimplify</div>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-detail__icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div>
+        <div class="contact-detail__label">Mailing Address</div>
+        <div class="contact-detail__value">PO Box 881, Burlington, VT 05401</div>
+      </div>
+    </div>
+
+    <!-- Wholesale note -->
+    <div style="background:var(--olive-pale);border-radius:var(--radius-lg);padding:1.5rem;margin-top:.5rem;">
+      <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--olive);margin-bottom:.5rem;">Wholesale Inquiries</div>
+      <p style="font-size:.9rem;color:var(--espresso-lt);line-height:1.7;">We partner with select boutique retailers and specialty grocery stores. Select "Wholesale" as your inquiry type in the form to receive our wholesale packet within 2 business days.</p>
+    </div>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="fade-in">
+    <form class="contact-form js-contact-form">
+      <h3>Send a Message</h3>
+      <div class="divider" style="margin:.25rem 0 .25rem"></div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" name="first_name" placeholder="Emma" required>
+        </div>
+        <div class="form-group">
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" name="last_name" placeholder="Callahan" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="inquiry">Inquiry Type</label>
+        <select id="inquiry" name="inquiry_type" required>
+          <option value="">Select a topic…</option>
+          <option>Order Question</option>
+          <option>Product Question</option>
+          <option>Wholesale / B2B</option>
+          <option>Press & Media</option>
+          <option>Producer Partnership</option>
+          <option>General Hello</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="order-number">Order Number (if applicable)</label>
+        <input type="text" id="order-number" name="order_number" placeholder="#SS-00000">
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us what's on your mind…" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;">
+        Send Message
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+
+      <p style="font-size:.75rem;color:var(--espresso-lt);opacity:.55;text-align:center;margin-top:-.25rem">We respond within 1 business day. Your information is never shared.</p>
+    </form>
+  </div>
+
+</div>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:.5rem;" class="fade-in">
+      <span class="eyebrow">Quick Answers</span>
+      <h2>Frequently Asked Questions</h2>
+      <div class="divider divider--center"></div>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item fade-in">
+        <h4>How long does shipping take?</h4>
+        <p>Standard shipping takes 3–5 business days. Expedited (1–2 days) is available at checkout. Orders over $75 ship free via standard.</p>
+      </div>
+      <div class="faq-item fade-in">
+        <h4>What is your return policy?</h4>
+        <p>We accept returns within 30 days of delivery for unused items in original packaging. Pantry goods are final sale once opened for food safety reasons.</p>
+      </div>
+      <div class="faq-item fade-in">
+        <h4>Do you offer gift wrapping?</h4>
+        <p>Yes — select gift wrapping at checkout for $6. We'll include a handwritten note on recycled card stock and wrap everything in our signature linen ribbon.</p>
+      </div>
+      <div class="faq-item fade-in">
+        <h4>Can I change or cancel my order?</h4>
+        <p>Orders can be modified or cancelled within 2 hours of placement. After that, we may have already packed your order — contact us quickly and we'll do our best.</p>
+      </div>
+      <div class="faq-item fade-in">
+        <h4>Do you ship internationally?</h4>
+        <p>Currently we ship within the continental US, Alaska, and Hawaii. International shipping is planned for 2026 — join our newsletter to be first to know.</p>
+      </div>
+      <div class="faq-item fade-in">
+        <h4>How do I apply to be a producer partner?</h4>
+        <p>We love discovering small makers. Fill out the contact form above and select "Producer Partnership" — include what you make and your location. We review every submission.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <span class="footer__logo">Savor & Simplify</span>
+      <p>Curated pantry staples, kitchen tools, and home goods for a life well-lived.</p>
+      <div class="footer__social">
+        <a href="#" class="footer__social-link" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="footer__social-link" aria-label="Pinterest"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.852 0 1.265.64 1.265 1.408 0 .858-.546 2.14-.828 3.33-.236.995.499 1.806 1.476 1.806 1.772 0 3.137-1.868 3.137-4.564 0-2.387-1.715-4.057-4.163-4.057-2.838 0-4.503 2.127-4.503 4.325 0 .856.33 1.774.741 2.276a.3.3 0 0 1 .069.286c-.076.313-.244.995-.277 1.134-.044.183-.146.222-.336.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer__col-title">Shop</div>
+      <ul class="footer__links"><li><a href="shop.html">Pantry</a></li><li><a href="shop.html">Kitchen</a></li><li><a href="shop.html">Home</a></li><li><a href="shop.html">Gift Sets</a></li></ul>
+    </div>
+    <div>
+      <div class="footer__col-title">Company</div>
+      <ul class="footer__links"><li><a href="about.html">Our Story</a></li><li><a href="contact.html">Contact</a></li><li><a href="#">Wholesale</a></li></ul>
+    </div>
+    <div>
+      <div class="footer__col-title">Help</div>
+      <ul class="footer__links"><li><a href="#">Shipping & Returns</a></li><li><a href="#">FAQs</a></li><li><a href="contact.html">Get in Touch</a></li></ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <p>© 2026 Savor & Simplify. All rights reserved.</p>
+    <div class="footer__bottom-links"><a href="#">Privacy</a><a href="#">Terms</a></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
