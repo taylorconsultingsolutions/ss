@@ -1022,6 +1022,16 @@
 </footer>
 
 <script>
+  // Auth gate — must have authenticated this session via admin.html
+  (function() {
+    const SESSION_KEY = 'ss_admin_v1';
+    const stored = sessionStorage.getItem(SESSION_KEY);
+    // If no session token, redirect to admin login
+    if (!stored) {
+      window.location.replace('admin.html');
+    }
+  })();
+
   // Fade-in observer
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });

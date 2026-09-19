@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Savor & Simplify</title>
+  <!-- Exclude from search engines -->
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700&family=Jost:wght@300;400;500;600&display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --espresso: #2D1F14;
+      --olive: #5C6B3A;
+      --gold: #D4A843;
+      --cream: #F5EDD8;
+      --sand: #E8DCC8;
+      --warm-gray: #8C7B6B;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Jost', system-ui, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--espresso);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    /* Subtle background texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(212,168,67,.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 75% 80%, rgba(92,107,58,.08) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    .card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      width: 100%;
+      max-width: 400px;
+      position: relative;
+      backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: .01em;
+      margin-bottom: .5rem;
+      display: block;
+    }
+    .logo span { color: var(--gold); }
+
+    .card__eyebrow {
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 2.5rem;
+    }
+
+    .card h1 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: .5rem;
+      line-height: 1.2;
+    }
+    .card__sub {
+      font-size: .8125rem;
+      color: rgba(255,255,255,.45);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    label {
+      display: block;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      margin-bottom: .5rem;
+    }
+
+    .input-wrap {
+      position: relative;
+      margin-bottom: 1.25rem;
+    }
+
+    input[type="password"] {
+      width: 100%;
+      padding: .875rem 3rem .875rem 1.125rem;
+      border: 1.5px solid rgba(255,255,255,.12);
+      border-radius: 8px;
+      background: rgba(255,255,255,.06);
+      color: white;
+      font-family: var(--font-body);
+      font-size: .9375rem;
+      transition: border-color .2s;
+      -webkit-appearance: none;
+    }
+    input[type="password"]:focus {
+      outline: none;
+      border-color: rgba(212,168,67,.6);
+    }
+    input[type="password"]::placeholder {
+      color: rgba(255,255,255,.2);
+    }
+
+    /* Show/hide toggle */
+    .toggle-vis {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: rgba(255,255,255,.35);
+      padding: .25rem;
+      line-height: 1;
+      font-size: .85rem;
+      transition: color .2s;
+    }
+    .toggle-vis:hover { color: rgba(255,255,255,.7); }
+
+    .btn-submit {
+      width: 100%;
+      padding: .9375rem;
+      background: var(--gold);
+      border: none;
+      border-radius: 8px;
+      color: var(--espresso);
+      font-family: var(--font-body);
+      font-size: .875rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      cursor: pointer;
+      transition: background .2s, transform .1s;
+    }
+    .btn-submit:hover { background: #c09235; }
+    .btn-submit:active { transform: scale(.98); }
+    .btn-submit:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+    .error-msg {
+      display: none;
+      background: rgba(220,50,50,.15);
+      border: 1px solid rgba(220,50,50,.3);
+      border-radius: 6px;
+      padding: .625rem 1rem;
+      font-size: .8rem;
+      color: #f08080;
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .error-msg.visible { display: block; }
+
+    .setup-notice {
+      display: none;
+      background: rgba(212,168,67,.12);
+      border: 1px solid rgba(212,168,67,.3);
+      border-radius: 6px;
+      padding: .875rem 1rem;
+      font-size: .75rem;
+      color: rgba(212,168,67,.9);
+      margin-top: 1rem;
+      line-height: 1.65;
+    }
+    .setup-notice code {
+      background: rgba(212,168,67,.15);
+      padding: .1em .4em;
+      border-radius: 3px;
+      font-family: monospace;
+      font-size: .85em;
+    }
+    .setup-notice.visible { display: block; }
+
+    .card__footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,.07);
+      font-size: .7rem;
+      color: rgba(255,255,255,.25);
+      text-align: center;
+      line-height: 1.65;
+    }
+    .card__footer a { color: rgba(255,255,255,.35); text-decoration: none; }
+    .card__footer a:hover { color: rgba(255,255,255,.6); }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <a href="index.html" class="logo">Savor <span>&</span> Simplify</a>
+  <div class="card__eyebrow">Internal Tools</div>
+  <h1>Admin Access</h1>
+  <p class="card__sub">Enter your admin password to access the affiliate partner directory.</p>
+
+  <form id="adminForm" autocomplete="off">
+    <label for="pw">Password</label>
+    <div class="input-wrap">
+      <input type="password" id="pw" name="pw" placeholder="Enter admin password" autofocus autocomplete="current-password">
+      <button type="button" class="toggle-vis" id="toggleVis" aria-label="Show/hide password" tabindex="-1">👁</button>
+    </div>
+    <button type="submit" class="btn-submit" id="submitBtn">Access Directory →</button>
+  </form>
+
+  <div class="error-msg" id="errorMsg">Incorrect password. Try again.</div>
+
+  <!--
+    SETUP NOTICE — only visible when ADMIN_HASH is not yet configured.
+    See setup instructions in the <script> block below.
+  -->
+  <div class="setup-notice" id="setupNotice">
+    <strong>Password not set yet.</strong> Open your browser console and run:<br><br>
+    <code>SS.generateHash('your-chosen-password').then(h => console.log('HASH:', h))</code><br><br>
+    Copy the hash that appears, then open <code>admin.html</code> in a text editor and paste it as the value of <code>ADMIN_HASH</code>.
+  </div>
+
+  <div class="card__footer">
+    Protected by Cloudflare Access &nbsp;·&nbsp; <a href="index.html">← Back to site</a>
+  </div>
+</div>
+
+<script>
+  /*
+  =========================================================
+  SETUP INSTRUCTIONS
+  =========================================================
+  1. Pick a password (e.g. "mySecretPass123")
+
+  2. In your browser, open this page (admin.html), then open
+     the browser console (F12 → Console tab) and run:
+
+       SS.generateHash('mySecretPass123').then(h => console.log('HASH:', h))
+
+  3. Copy the 64-character hash from the console output.
+
+  4. Replace the empty string below with your hash:
+       const ADMIN_HASH = 'paste-your-64-char-hash-here';
+
+  5. Keep your plaintext password somewhere safe (password manager).
+     Never commit the plaintext — only the hash lives in this file.
+
+  CLOUDFLARE ACCESS (real security layer):
+  When you point a custom domain through Cloudflare, add a Zero Trust
+  Access application that protects /admin.html and /link-tracker.html.
+  That SSO gate replaces this client-side check for production use.
+  =========================================================
+  */
+
+  // ▼ PASTE YOUR SHA-256 HASH HERE ▼
+  const ADMIN_HASH = '';
+  // ▲ (empty = setup mode, see instructions above) ▲
+
+  // Session key stored in sessionStorage (tab-scoped, cleared on browser close)
+  const SESSION_KEY = 'ss_admin_v1';
+
+  // If already authenticated this session, redirect immediately
+  if (sessionStorage.getItem(SESSION_KEY) === ADMIN_HASH && ADMIN_HASH !== '') {
+    window.location.replace('link-tracker.html');
+  }
+
+  // Show setup notice if hash not configured
+  if (ADMIN_HASH === '') {
+    document.getElementById('setupNotice').classList.add('visible');
+    document.getElementById('submitBtn').disabled = true;
+  }
+
+  // SHA-256 helper (exposed globally so you can run it in console)
+  window.SS = {
+    generateHash: async function(text) {
+      const enc = new TextEncoder();
+      const buf = await crypto.subtle.digest('SHA-256', enc.encode(text));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+  };
+
+  // Show/hide password toggle
+  const pwInput  = document.getElementById('pw');
+  const toggleBtn = document.getElementById('toggleVis');
+  toggleBtn.addEventListener('click', () => {
+    if (pwInput.type === 'password') {
+      pwInput.type = 'text';
+      toggleBtn.textContent = '🙈';
+    } else {
+      pwInput.type = 'password';
+      toggleBtn.textContent = '👁';
+    }
+  });
+
+  // Form submit
+  document.getElementById('adminForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (ADMIN_HASH === '') return;
+
+    const errorEl = document.getElementById('errorMsg');
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Checking…';
+    errorEl.classList.remove('visible');
+
+    try {
+      const inputHash = await SS.generateHash(pwInput.value);
+      if (inputHash === ADMIN_HASH) {
+        sessionStorage.setItem(SESSION_KEY, ADMIN_HASH);
+        window.location.replace('link-tracker.html');
+      } else {
+        errorEl.classList.add('visible');
+        pwInput.value = '';
+        pwInput.focus();
+      }
+    } catch (err) {
+      errorEl.textContent = 'Error checking password. Try refreshing.';
+      errorEl.classList.add('visible');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Access Directory →';
+    }
+  });
+</script>
+</body>
+</html>
