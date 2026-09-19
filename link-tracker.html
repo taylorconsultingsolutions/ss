@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affiliate Partner Directory — Savor & Simplify</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .fade-in { opacity: 0; transform: translateY(16px); transition: opacity .55s ease, transform .55s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    .tracker-hero {
+      background: var(--espresso);
+      padding: 4rem 0 3rem;
+      color: white;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .tracker-hero .eyebrow { color: var(--gold); }
+    .tracker-hero h1 { color: white; font-size: clamp(2rem,4vw,3rem); margin-bottom: .75rem; }
+    .tracker-hero p { color: rgba(255,255,255,.65); max-width: 60ch; font-size: 1rem; line-height: 1.75; }
+
+    .tracker-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .stat-chip {
+      display: flex;
+      flex-direction: column;
+      gap: .25rem;
+    }
+    .stat-chip__num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: white;
+      line-height: 1;
+    }
+    .stat-chip__label {
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+    }
+
+    /* === FILTER BAR === */
+    .filter-bar {
+      background: var(--cream);
+      border-bottom: 1px solid var(--sand);
+      padding: 1.25rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .filter-bar .container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .filter-label {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      white-space: nowrap;
+    }
+    .filter-pills {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+    }
+    .filter-pill {
+      padding: .375rem 1rem;
+      border-radius: 20px;
+      border: 1.5px solid var(--sand);
+      background: white;
+      font-size: .75rem;
+      font-weight: 500;
+      font-family: var(--font-body);
+      color: var(--espresso);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .filter-pill:hover { border-color: var(--olive); color: var(--olive); }
+    .filter-pill.active { background: var(--olive); border-color: var(--olive); color: white; }
+
+    .search-input {
+      margin-left: auto;
+      padding: .375rem 1rem;
+      border: 1.5px solid var(--sand);
+      border-radius: 6px;
+      font-size: .8125rem;
+      font-family: var(--font-body);
+      color: var(--espresso);
+      background: white;
+      width: 200px;
+      transition: border-color .2s;
+    }
+    .search-input:focus { outline: none; border-color: var(--olive); }
+
+    /* === MAIN TABLE AREA === */
+    .tracker-section {
+      padding: 3rem 0 6rem;
+      background: var(--linen);
+    }
+
+    .category-group { margin-bottom: 3.5rem; }
+    .category-group__title {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      border-bottom: 1px solid var(--sand);
+      padding-bottom: .75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .brand-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+      font-size: .8125rem;
+    }
+    .brand-table th {
+      background: #f6f2ed;
+      text-align: left;
+      padding: .875rem 1rem;
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      border-bottom: 1px solid var(--sand);
+    }
+    .brand-table td {
+      padding: 1rem 1rem;
+      border-bottom: 1px solid #f0ece6;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .brand-table tr:last-child td { border-bottom: none; }
+    .brand-table tr { transition: background .15s; }
+    .brand-table tr.partner-row:hover { background: #fdf9f5; }
+    .brand-table tr.partner-row[data-hidden="true"] { display: none; }
+
+    .brand-name {
+      font-weight: 600;
+      color: var(--espresso);
+      display: block;
+      margin-bottom: .2rem;
+    }
+    .brand-url {
+      font-size: .7rem;
+      color: var(--warm-gray);
+      text-decoration: none;
+    }
+    .brand-url:hover { color: var(--olive); text-decoration: underline; }
+
+    /* Status badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      padding: .25rem .65rem;
+      border-radius: 12px;
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .badge--affiliate  { background: #e8f5e9; color: #2e7d32; }
+    .badge--wholesale  { background: #e3f2fd; color: #1565c0; }
+    .badge--referral   { background: #fff8e1; color: #e65100; }
+    .badge--network    { background: #f3e5f5; color: #6a1b9a; }
+    .badge--none       { background: #fafafa; color: #9e9e9e; border: 1px solid #e0e0e0; }
+    .badge--verify     { background: #fff3e0; color: #bf360c; }
+
+    /* My status badges */
+    .my-status {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      padding: .25rem .65rem;
+      border-radius: 12px;
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .my-status--active   { background: #c8e6c9; color: #1b5e20; }
+    .my-status--pending  { background: #fff9c4; color: #827717; }
+    .my-status--na       { background: #f5f5f5; color: #bdbdbd; }
+    .my-status--priority { background: #fce4ec; color: #880e4f; }
+
+    /* Commission pill */
+    .comm-pill {
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--olive);
+    }
+    .comm-pill--na { color: var(--warm-gray); }
+
+    /* Link cell */
+    .link-cell {
+      font-family: monospace;
+      font-size: .7rem;
+      color: var(--warm-gray);
+      max-width: 220px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .link-cell a { color: var(--olive); }
+    .link-placeholder {
+      font-size: .7rem;
+      color: #ccc;
+      font-style: italic;
+    }
+
+    .notes-cell { font-size: .75rem; color: var(--warm-gray); max-width: 240px; line-height: 1.55; }
+
+    /* Action button */
+    .apply-btn {
+      display: inline-block;
+      padding: .3rem .8rem;
+      border: 1.5px solid var(--olive);
+      border-radius: 20px;
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--olive);
+      text-decoration: none;
+      transition: background .2s, color .2s;
+      white-space: nowrap;
+    }
+    .apply-btn:hover { background: var(--olive); color: white; }
+    .apply-btn--disabled { border-color: #ddd; color: #bbb; pointer-events: none; }
+
+    @media (max-width: 900px) {
+      .brand-table { font-size: .75rem; }
+      .brand-table th, .brand-table td { padding: .75rem .625rem; }
+      .col-link, .col-notes { display: none; }
+    }
+    @media (max-width: 600px) {
+      .col-platform, .col-cookie { display: none; }
+    }
+
+    /* Priority callout */
+    .priority-banner {
+      background: linear-gradient(135deg, #2d1f0a, #4a3010);
+      border: 1px solid rgba(212,168,67,.3);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 2rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .priority-banner__icon { font-size: 1.5rem; flex-shrink: 0; }
+    .priority-banner__title { font-weight: 600; color: var(--gold); margin-bottom: .35rem; font-size: .875rem; }
+    .priority-banner__body { font-size: .8125rem; color: rgba(255,255,255,.7); line-height: 1.65; }
+    .priority-banner__body strong { color: rgba(255,255,255,.9); }
+  </style>
+</head>
+<body>
+
+<!-- Announcement Bar -->
+<div class="announcement">
+  🎃 Halloween Collection Now Live
+</div>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">Savor <span>&</span> Simplify</a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button class="nav__hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav">
+  <button class="mobile-nav__close" aria-label="Close menu">✕</button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="collections.html">Collections</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="halloween.html" class="btn btn--primary">Shop Halloween</a>
+</div>
+
+<!-- Hero -->
+<section class="tracker-hero">
+  <div class="container">
+    <div class="eyebrow">Internal Reference · Last Updated Sept 2026</div>
+    <h1>Affiliate Partner Directory</h1>
+    <p>Every brand and retailer relevant to Savor & Simplify — with program type, commission rates, application status, and your affiliate links in one place.</p>
+    <div class="tracker-stats">
+      <div class="stat-chip">
+        <span class="stat-chip__num" id="stat-total">32</span>
+        <span class="stat-chip__label">Total Partners</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-chip__num" id="stat-affiliate">22</span>
+        <span class="stat-chip__label">Have Affiliate Programs</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-chip__num" id="stat-priority">5</span>
+        <span class="stat-chip__label">Apply Immediately</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-chip__num" id="stat-wholesale">4</span>
+        <span class="stat-chip__label">Wholesale / Trade Only</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Filter Bar -->
+<div class="filter-bar">
+  <div class="container">
+    <span class="filter-label">Filter:</span>
+    <div class="filter-pills">
+      <button class="filter-pill active" data-filter="all">All (32)</button>
+      <button class="filter-pill" data-filter="affiliate">Has Affiliate</button>
+      <button class="filter-pill" data-filter="wholesale">Wholesale / Trade</button>
+      <button class="filter-pill" data-filter="referral">Referral Only</button>
+      <button class="filter-pill" data-filter="none">No Program</button>
+      <button class="filter-pill" data-filter="priority">Apply Now 🔥</button>
+    </div>
+    <input type="text" class="search-input" id="brandSearch" placeholder="Search brands…">
+  </div>
+</div>
+
+<!-- Main Content -->
+<section class="tracker-section">
+  <div class="container">
+
+    <!-- Priority Callout -->
+    <div class="priority-banner fade-in">
+      <div class="priority-banner__icon">🔥</div>
+      <div>
+        <div class="priority-banner__title">Apply to These First — Highest Revenue Potential</div>
+        <div class="priority-banner__body">
+          <strong>1. Amazon Associates</strong> — Every product link on the site should run through here. <strong>2. LTK</strong> — One app, 5,000+ brands, higher commissions than most direct programs. <strong>3. Williams Sonoma / Pottery Barn / West Elm</strong> — All on CJ Affiliate, one application covers the group. <strong>4. Target</strong> — Broad seasonal reach. <strong>5. Etsy</strong> — Handmade tableware has high margin and high reader intent.
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== NETWORKS & PLATFORMS ===== -->
+    <div class="category-group fade-in" data-category-group="networks">
+      <div class="category-group__title">Affiliate Networks & Platforms — Apply Once, Access Hundreds of Brands</div>
+      <div style="overflow-x:auto;">
+      <table class="brand-table">
+        <thead>
+          <tr>
+            <th style="width:180px">Brand / Platform</th>
+            <th>Program Type</th>
+            <th class="col-platform">Network</th>
+            <th>Commission</th>
+            <th class="col-cookie">Cookie</th>
+            <th>My Status</th>
+            <th class="col-link">My Link</th>
+            <th class="col-notes">Notes</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="partner-row" data-type="affiliate" data-priority="true">
+            <td><span class="brand-name">Amazon Associates</span><a href="https://affiliate-program.amazon.com" target="_blank" class="brand-url">affiliate-program.amazon.com</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">Amazon Direct</td>
+            <td><span class="comm-pill">1–10%</span></td>
+            <td class="col-cookie">24 hr add-to-cart</td>
+            <td><span class="my-status my-status--priority">Apply Now</span></td>
+            <td class="col-link"><span class="link-placeholder">— not yet applied —</span></td>
+            <td class="col-notes">Home & Kitchen: 4%. Pantry: 1%. Books: 4.5%. Essential foundation for every product link on the site.</td>
+            <td><a href="https://affiliate-program.amazon.com" target="_blank" class="apply-btn">Apply →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate" data-priority="true">
+            <td><span class="brand-name">LTK (LikeToKnow.it)</span><a href="https://company.shopltk.com/en/creator" target="_blank" class="brand-url">company.shopltk.com</a></td>
+            <td><span class="badge badge--network">★ Network</span></td>
+            <td class="col-platform">LTK Platform</td>
+            <td><span class="comm-pill">5–20%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--priority">Apply Now</span></td>
+            <td class="col-link"><span class="link-placeholder">— not yet applied —</span></td>
+            <td class="col-notes">5,000+ brands in one app. Invitation-based — apply with Instagram/blog. Higher commissions than direct programs. Room for Tuesday uses this heavily.</td>
+            <td><a href="https://company.shopltk.com/en/creator" target="_blank" class="apply-btn">Apply →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">ShareASale</span><a href="https://www.shareasale.com/info/affiliate.cfm" target="_blank" class="brand-url">shareasale.com</a></td>
+            <td><span class="badge badge--network">★ Network</span></td>
+            <td class="col-platform">ShareASale</td>
+            <td><span class="comm-pill">Varies</span></td>
+            <td class="col-cookie">Varies</td>
+            <td><span class="my-status my-status--pending">Pending</span></td>
+            <td class="col-link"><span class="link-placeholder">— not yet applied —</span></td>
+            <td class="col-notes">Access to Stonewall Kitchen, Rifle Paper Co., Magnolia, and 4,000+ others. One application unlocks all merchants.</td>
+            <td><a href="https://www.shareasale.com/info/affiliate.cfm" target="_blank" class="apply-btn">Apply →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">CJ Affiliate</span><a href="https://www.cj.com/publisher" target="_blank" class="brand-url">cj.com</a></td>
+            <td><span class="badge badge--network">★ Network</span></td>
+            <td class="col-platform">CJ Affiliate</td>
+            <td><span class="comm-pill">Varies</span></td>
+            <td class="col-cookie">Varies</td>
+            <td><span class="my-status my-status--priority">Apply Now</span></td>
+            <td class="col-link"><span class="link-placeholder">— not yet applied —</span></td>
+            <td class="col-notes">Covers Williams Sonoma, Pottery Barn, West Elm, Wayfair, Food52. One application covers entire Williams Sonoma group.</td>
+            <td><a href="https://www.cj.com/publisher" target="_blank" class="apply-btn">Apply →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Awin</span><a href="https://www.awin.com/us/publishers" target="_blank" class="brand-url">awin.com</a></td>
+            <td><span class="badge badge--network">★ Network</span></td>
+            <td class="col-platform">Awin</td>
+            <td><span class="comm-pill">Varies</span></td>
+            <td class="col-cookie">30–90 days</td>
+            <td><span class="my-status my-status--pending">Pending</span></td>
+            <td class="col-link"><span class="link-placeholder">— not yet applied —</span></td>
+            <td class="col-notes">Covers Etsy, Anthropologie, Terrain, and many European lifestyle brands. $5 deposit to join, refunded on first payment.</td>
+            <td><a href="https://www.awin.com/us/publishers" target="_blank" class="apply-btn">Apply →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Impact Radius</span><a href="https://impact.com/publishers" target="_blank" class="brand-url">impact.com</a></td>
+            <td><span class="badge badge--network">★ Network</span></td>
+            <td class="col-platform">Impact</td>
+            <td><span class="comm-pill">Varies</span></td>
+            <td class="col-cookie">Varies</td>
+            <td><span class="my-status my-status--pending">Pending</span></td>
+            <td class="col-link"><span class="link-placeholder">— not yet applied —</span></td>
+            <td class="col-notes">Covers Target, Sur La Table, and many DTC brands. Strong for kitchen and seasonal categories.</td>
+            <td><a href="https://impact.com/publishers" target="_blank" class="apply-btn">Apply →</a></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- ===== TABLETOP & PAPER GOODS ===== -->
+    <div class="category-group fade-in" data-category-group="tabletop">
+      <div class="category-group__title">Tabletop, Paper Goods & Entertaining</div>
+      <div style="overflow-x:auto;">
+      <table class="brand-table">
+        <thead>
+          <tr>
+            <th style="width:180px">Brand</th>
+            <th>Program Type</th>
+            <th class="col-platform">Network / Platform</th>
+            <th>Commission</th>
+            <th class="col-cookie">Cookie</th>
+            <th>My Status</th>
+            <th class="col-link">My Link</th>
+            <th class="col-notes">Notes</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="partner-row" data-type="wholesale">
+            <td><span class="brand-name">Caspari</span><a href="https://casparionline.com/trade" target="_blank" class="brand-url">casparionline.com/trade</a></td>
+            <td><span class="badge badge--wholesale">⊕ Wholesale / Trade</span></td>
+            <td class="col-platform">Direct / Trade</td>
+            <td><span class="comm-pill comm-pill--na">Trade pricing</span></td>
+            <td class="col-cookie">N/A</td>
+            <td><span class="my-status my-status--pending">Verify</span></td>
+            <td class="col-link"><span class="link-placeholder">— contact for trade acct —</span></td>
+            <td class="col-notes">Premium paper napkins, plates, and entertaining goods. No public affiliate program — sells primarily through retail stores and trade accounts. Contact them directly for wholesale/designer pricing. Very high reader desire for this brand.</td>
+            <td><a href="https://casparionline.com/trade" target="_blank" class="apply-btn">Contact →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate" data-priority="true">
+            <td><span class="brand-name">Williams Sonoma</span><a href="https://www.cj.com" target="_blank" class="brand-url">via CJ Affiliate</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">CJ Affiliate</td>
+            <td><span class="comm-pill">~3–4%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--priority">Apply Now</span></td>
+            <td class="col-link"><span class="link-placeholder">— apply via CJ first —</span></td>
+            <td class="col-notes">Highest-trust kitchen/entertaining brand. Same CJ account covers Pottery Barn and West Elm. Join CJ once, apply to all three individually.</td>
+            <td><a href="https://www.cj.com/publisher" target="_blank" class="apply-btn">Via CJ →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Pottery Barn</span><a href="https://www.cj.com" target="_blank" class="brand-url">via CJ Affiliate</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">CJ Affiliate</td>
+            <td><span class="comm-pill">~3–4%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--pending">Pending CJ</span></td>
+            <td class="col-link"><span class="link-placeholder">— pending CJ application —</span></td>
+            <td class="col-notes">Part of Williams Sonoma group. Best for holiday tableware, seasonal decor, table linens. Strong aspirational content.</td>
+            <td><a href="https://www.cj.com/publisher" target="_blank" class="apply-btn">Via CJ →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">West Elm</span><a href="https://www.cj.com" target="_blank" class="brand-url">via CJ Affiliate</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">CJ Affiliate</td>
+            <td><span class="comm-pill">~3–4%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--pending">Pending CJ</span></td>
+            <td class="col-link"><span class="link-placeholder">— pending CJ application —</span></td>
+            <td class="col-notes">Modern home + entertaining. Great for "elevated everyday" pieces. Same CJ account as Williams Sonoma.</td>
+            <td><a href="https://www.cj.com/publisher" target="_blank" class="apply-btn">Via CJ →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Crate & Barrel / CB2</span><a href="https://www.rakutenadvertising.com/publishers" target="_blank" class="brand-url">via Rakuten</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">Rakuten</td>
+            <td><span class="comm-pill">~3%</span></td>
+            <td class="col-cookie">7 days</td>
+            <td><span class="my-status my-status--pending">Pending</span></td>
+            <td class="col-link"><span class="link-placeholder">— pending Rakuten application —</span></td>
+            <td class="col-notes">Modern entertaining classics. CB2 skews younger/more editorial. Good for Thanksgiving and Christmas tableware.</td>
+            <td><a href="https://www.rakutenadvertising.com/publishers" target="_blank" class="apply-btn">Via Rakuten →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Anthropologie</span><a href="https://www.awin.com" target="_blank" class="brand-url">via Awin</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">Awin</td>
+            <td><span class="comm-pill">~4–8%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--pending">Pending Awin</span></td>
+            <td class="col-link"><span class="link-placeholder">— pending Awin application —</span></td>
+            <td class="col-notes">Strongest brand for Savor & Simplify aesthetic. Eclectic, seasonal, editorial. Also available via LTK. Readers will love their glassware and napkins.</td>
+            <td><a href="https://www.awin.com/us/publishers" target="_blank" class="apply-btn">Via Awin →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Rifle Paper Co.</span><a href="https://www.shareasale.com" target="_blank" class="brand-url">via ShareASale</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">ShareASale</td>
+            <td><span class="comm-pill">~10%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--pending">Pending ShareASale</span></td>
+            <td class="col-link"><span class="link-placeholder">— pending ShareASale —</span></td>
+            <td class="col-notes">Floral/botanical paper goods — gift wrap, cards, napkins. Excellent for Mother's Day, Easter, and gifting guides. High commission at 10%.</td>
+            <td><a href="https://www.shareasale.com/info/affiliate.cfm" target="_blank" class="apply-btn">Via ShareASale →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="wholesale">
+            <td><span class="brand-name">Juliska</span><a href="https://www.juliska.com/pages/trade-program" target="_blank" class="brand-url">juliska.com/trade-program</a></td>
+            <td><span class="badge badge--wholesale">⊕ Wholesale / Trade</span></td>
+            <td class="col-platform">Direct / Trade</td>
+            <td><span class="comm-pill comm-pill--na">Trade pricing</span></td>
+            <td class="col-cookie">N/A</td>
+            <td><span class="my-status my-status--na">No Program</span></td>
+            <td class="col-link"><span class="link-placeholder">— wholesale only —</span></td>
+            <td class="col-notes">Premium handcrafted dinnerware and glassware. No public affiliate. Trade program requires business credentials. Feature in editorial content; link to retailer (Williams Sonoma, Nordstrom) that carries it instead.</td>
+            <td><span class="apply-btn apply-btn--disabled">Trade Only</span></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Etsy</span><a href="https://www.awin.com" target="_blank" class="brand-url">via Awin</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">Awin</td>
+            <td><span class="comm-pill">4%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--priority">Apply Now</span></td>
+            <td class="col-link"><span class="link-placeholder">— pending Awin application —</span></td>
+            <td class="col-notes">Handmade ceramic tableware, custom linen napkins, one-of-a-kind decor. Perfect for "you won't find this anywhere else" picks. High reader intent.</td>
+            <td><a href="https://www.awin.com/us/publishers" target="_blank" class="apply-btn">Via Awin →</a></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- ===== VINTAGE & MARKETPLACE ===== -->
+    <div class="category-group fade-in" data-category-group="vintage">
+      <div class="category-group__title">Vintage, Estate & Marketplace</div>
+      <div style="overflow-x:auto;">
+      <table class="brand-table">
+        <thead>
+          <tr>
+            <th style="width:180px">Brand</th>
+            <th>Program Type</th>
+            <th class="col-platform">Network / Platform</th>
+            <th>Commission</th>
+            <th class="col-cookie">Cookie</th>
+            <th>My Status</th>
+            <th class="col-link">My Link</th>
+            <th class="col-notes">Notes</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="partner-row" data-type="referral">
+            <td><span class="brand-name">EBTH — Everything But the House</span><a href="https://www.ebth.com/referrals" target="_blank" class="brand-url">ebth.com/referrals</a></td>
+            <td><span class="badge badge--referral">↗ Referral Program</span></td>
+            <td class="col-platform">Direct (EBTH)</td>
+            <td><span class="comm-pill">Verify current rate</span></td>
+            <td class="col-cookie">Verify</td>
+            <td><span class="my-status my-status--pending">Verify</span></td>
+            <td class="col-link"><span class="link-placeholder">— check current program —</span></td>
+            <td class="col-notes">Online estate sale marketplace — one-of-a-kind vintage pieces, glassware, serving pieces. Previously offered buyer referral credits. Check current program terms at their site. Great source to find and feature unique pieces readers can bid on.</td>
+            <td><a href="https://www.ebth.com" target="_blank" class="apply-btn">Check →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">1stDibs</span><a href="https://www.1stdibs.com/affiliates" target="_blank" class="brand-url">1stdibs.com/affiliates</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">Direct</td>
+            <td><span class="comm-pill">~3–5%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--pending">Pending</span></td>
+            <td class="col-link"><span class="link-placeholder">— not yet applied —</span></td>
+            <td class="col-notes">Luxury vintage and antique marketplace. High average order values ($500+). Perfect for "Splurge" tier picks — vintage silver, antique serving pieces, estate glassware.</td>
+            <td><a href="https://www.1stdibs.com/affiliates" target="_blank" class="apply-btn">Apply →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="referral">
+            <td><span class="brand-name">Chairish</span><a href="https://www.chairish.com/referral" target="_blank" class="brand-url">chairish.com/referral</a></td>
+            <td><span class="badge badge--referral">↗ Referral Program</span></td>
+            <td class="col-platform">Direct</td>
+            <td><span class="comm-pill">Verify current rate</span></td>
+            <td class="col-cookie">Varies</td>
+            <td><span class="my-status my-status--pending">Verify</span></td>
+            <td class="col-link"><span class="link-placeholder">— check current program —</span></td>
+            <td class="col-notes">Designer vintage furniture and decor. Great for "the piece that makes the whole room" picks. Check their current referral/affiliate terms.</td>
+            <td><a href="https://www.chairish.com" target="_blank" class="apply-btn">Check →</a></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- ===== KITCHEN & COOKING ===== -->
+    <div class="category-group fade-in" data-category-group="kitchen">
+      <div class="category-group__title">Kitchen, Cookware & Specialty Food</div>
+      <div style="overflow-x:auto;">
+      <table class="brand-table">
+        <thead>
+          <tr>
+            <th style="width:180px">Brand</th>
+            <th>Program Type</th>
+            <th class="col-platform">Network / Platform</th>
+            <th>Commission</th>
+            <th class="col-cookie">Cookie</th>
+            <th>My Status</th>
+            <th class="col-link">My Link</th>
+            <th class="col-notes">Notes</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Sur La Table</span><a href="https://impact.com" target="_blank" class="brand-url">via Impact Radius</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">Impact Radius</td>
+            <td><span class="comm-pill">~5–8%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--pending">Pending Impact</span></td>
+            <td class="col-link"><span class="link-placeholder">— pending Impact application —</span></td>
+            <td class="col-notes">Premium kitchen tools, bakeware, and entertaining essentials. Higher commission than Williams Sonoma. Great for "the knife worth owning" and "the pan you'll use forever" content.</td>
+            <td><a href="https://impact.com/publishers" target="_blank" class="apply-btn">Via Impact →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Food52 Shop</span><a href="https://food52.com/affiliates" target="_blank" class="brand-url">food52.com/affiliates</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">CJ Affiliate</td>
+            <td><span class="comm-pill">~5%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--pending">Pending CJ</span></td>
+            <td class="col-link"><span class="link-placeholder">— pending CJ application —</span></td>
+            <td class="col-notes">Editorial kitchen shop with strong curation credibility. Great for storytelling-style product recommendations. Carries many small-batch and independent brands.</td>
+            <td><a href="https://www.cj.com/publisher" target="_blank" class="apply-btn">Via CJ →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Goldbelly</span><a href="https://www.goldbelly.com/affiliates" target="_blank" class="brand-url">goldbelly.com/affiliates</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">ShareASale / Direct</td>
+            <td><span class="comm-pill">~5–10%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--pending">Pending</span></td>
+            <td class="col-link"><span class="link-placeholder">— not yet applied —</span></td>
+            <td class="col-notes">Gourmet food delivery from iconic restaurants and artisans nationwide. Perfect for food gift guides, holiday entertaining, and special occasion content. High AOV.</td>
+            <td><a href="https://www.goldbelly.com" target="_blank" class="apply-btn">Check →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Stonewall Kitchen</span><a href="https://www.shareasale.com" target="_blank" class="brand-url">via ShareASale</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">ShareASale</td>
+            <td><span class="comm-pill">~5–8%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--pending">Pending ShareASale</span></td>
+            <td class="col-link"><span class="link-placeholder">— pending ShareASale —</span></td>
+            <td class="col-notes">Specialty jams, condiments, sauces, and pantry items. Perfect for "the hostess gift" guides and pantry essentials content. Seasonal gift sets are top sellers.</td>
+            <td><a href="https://www.shareasale.com/info/affiliate.cfm" target="_blank" class="apply-btn">Via ShareASale →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Great Jones Cookware</span><a href="https://greatjonesgoods.com/pages/affiliate" target="_blank" class="brand-url">greatjonesgoods.com</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">Refersion / Direct</td>
+            <td><span class="comm-pill">~10%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--pending">Pending</span></td>
+            <td class="col-link"><span class="link-placeholder">— not yet applied —</span></td>
+            <td class="col-notes">Colorful cast iron and enameled cookware. Very photogenic for content. High commission at ~10%. Great for "kitchen upgrade" gift guides.</td>
+            <td><a href="https://greatjonesgoods.com/pages/affiliate" target="_blank" class="apply-btn">Apply →</a></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- ===== GENERAL RETAIL ===== -->
+    <div class="category-group fade-in" data-category-group="retail">
+      <div class="category-group__title">General Retail & Mass Market</div>
+      <div style="overflow-x:auto;">
+      <table class="brand-table">
+        <thead>
+          <tr>
+            <th style="width:180px">Brand</th>
+            <th>Program Type</th>
+            <th class="col-platform">Network / Platform</th>
+            <th>Commission</th>
+            <th class="col-cookie">Cookie</th>
+            <th>My Status</th>
+            <th class="col-link">My Link</th>
+            <th class="col-notes">Notes</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="partner-row" data-type="affiliate" data-priority="true">
+            <td><span class="brand-name">Target</span><a href="https://impact.com" target="_blank" class="brand-url">via Impact Radius</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">Impact Radius</td>
+            <td><span class="comm-pill">1–8%</span></td>
+            <td class="col-cookie">7 days</td>
+            <td><span class="my-status my-status--priority">Apply Now</span></td>
+            <td class="col-link"><span class="link-placeholder">— pending Impact application —</span></td>
+            <td class="col-notes">Widest seasonal reach — halloween decor, Thanksgiving tableware, holiday items. Short cookie (7 days) means time-sensitive content is key. Home & Kitchen category pays ~5%.</td>
+            <td><a href="https://impact.com/publishers" target="_blank" class="apply-btn">Via Impact →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Wayfair</span><a href="https://www.cj.com" target="_blank" class="brand-url">via CJ Affiliate</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">CJ Affiliate</td>
+            <td><span class="comm-pill">~7%</span></td>
+            <td class="col-cookie">7 days</td>
+            <td><span class="my-status my-status--pending">Pending CJ</span></td>
+            <td class="col-link"><span class="link-placeholder">— pending CJ application —</span></td>
+            <td class="col-notes">Huge seasonal selection. Higher commission than most (~7%). Good for "budget-friendly version" in Good/Better/Best tiers. Short cookie window.</td>
+            <td><a href="https://www.cj.com/publisher" target="_blank" class="apply-btn">Via CJ →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">World Market (Cost Plus)</span><a href="https://www.cj.com" target="_blank" class="brand-url">via CJ Affiliate</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">CJ Affiliate</td>
+            <td><span class="comm-pill">~5%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--pending">Pending CJ</span></td>
+            <td class="col-link"><span class="link-placeholder">— pending CJ application —</span></td>
+            <td class="col-notes">Global home goods, eclectic entertaining items, seasonal decor. Great "finds at a price" category. Strong seasonal inventory for Halloween and Christmas.</td>
+            <td><a href="https://www.cj.com/publisher" target="_blank" class="apply-btn">Via CJ →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="none">
+            <td><span class="brand-name">HomeGoods / TJ Maxx / Marshalls</span><a href="https://www.tjx.com" target="_blank" class="brand-url">tjx.com</a></td>
+            <td><span class="badge badge--none">✗ No Program</span></td>
+            <td class="col-platform">N/A</td>
+            <td><span class="comm-pill comm-pill--na">N/A</span></td>
+            <td class="col-cookie">N/A</td>
+            <td><span class="my-status my-status--na">N/A</span></td>
+            <td class="col-link"><span class="link-placeholder">— no affiliate program —</span></td>
+            <td class="col-notes">Off-price retail (TJX Companies). No affiliate program — inventory changes daily and is not linkable. Mention in content as "check HomeGoods for a version of this" but don't link. Do not chase this.</td>
+            <td><span class="apply-btn apply-btn--disabled">Not Available</span></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Terrain (Urban Outfitters)</span><a href="https://www.awin.com" target="_blank" class="brand-url">via Awin</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">Awin</td>
+            <td><span class="comm-pill">~4–8%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--pending">Pending Awin</span></td>
+            <td class="col-link"><span class="link-placeholder">— pending Awin application —</span></td>
+            <td class="col-notes">Garden-to-table lifestyle brand. Great for spring/summer collections, botanicals, and outdoor entertaining. Part of Urban Outfitters/URBN group — same Awin account covers Anthropologie.</td>
+            <td><a href="https://www.awin.com/us/publishers" target="_blank" class="apply-btn">Via Awin →</a></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- ===== CANDLES & ATMOSPHERE ===== -->
+    <div class="category-group fade-in" data-category-group="candles">
+      <div class="category-group__title">Candles, Scent & Atmosphere</div>
+      <div style="overflow-x:auto;">
+      <table class="brand-table">
+        <thead>
+          <tr>
+            <th style="width:180px">Brand</th>
+            <th>Program Type</th>
+            <th class="col-platform">Network / Platform</th>
+            <th>Commission</th>
+            <th class="col-cookie">Cookie</th>
+            <th>My Status</th>
+            <th class="col-link">My Link</th>
+            <th class="col-notes">Notes</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Voluspa</span><a href="https://www.rakutenadvertising.com" target="_blank" class="brand-url">via Rakuten</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">Rakuten Advertising</td>
+            <td><span class="comm-pill">~5–8%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--pending">Pending Rakuten</span></td>
+            <td class="col-link"><span class="link-placeholder">— not yet applied —</span></td>
+            <td class="col-notes">Luxury candles with strong seasonal lines (Pumpkin Dulce, Maison Blanc). Aspirational price point. Great for atmosphere sections in every collection. Also available through LTK.</td>
+            <td><a href="https://www.rakutenadvertising.com/publishers" target="_blank" class="apply-btn">Via Rakuten →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">P.F. Candle Co.</span><a href="https://pfcandleco.com/pages/ambassador" target="_blank" class="brand-url">pfcandleco.com/ambassador</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">Direct (Refersion)</td>
+            <td><span class="comm-pill">~15%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--pending">Apply</span></td>
+            <td class="col-link"><span class="link-placeholder">— not yet applied —</span></td>
+            <td class="col-notes">Clean soy candles, seasonal scents (Tobacco & Vanilla, Teakwood, Harvest). 15% commission is among the highest. Very photogenic. Beloved by the exact audience Savor & Simplify attracts.</td>
+            <td><a href="https://pfcandleco.com/pages/ambassador" target="_blank" class="apply-btn">Apply →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Boy Smells</span><a href="https://boysmells.com" target="_blank" class="brand-url">boysmells.com</a></td>
+            <td><span class="badge badge--verify">? Verify</span></td>
+            <td class="col-platform">Check site</td>
+            <td><span class="comm-pill comm-pill--na">Verify</span></td>
+            <td class="col-cookie">Verify</td>
+            <td><span class="my-status my-status--pending">Verify</span></td>
+            <td class="col-link"><span class="link-placeholder">— verify program first —</span></td>
+            <td class="col-notes">Trendy, editorial candle brand. Gender-inclusive aesthetic. Check their site for affiliate/ambassador program. Also carried by Nordstrom (which has its own program).</td>
+            <td><a href="https://boysmells.com" target="_blank" class="apply-btn">Check →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="none">
+            <td><span class="brand-name">Diptyque</span><a href="https://www.diptyqueparis.com" target="_blank" class="brand-url">diptyqueparis.com</a></td>
+            <td><span class="badge badge--none">✗ No Program</span></td>
+            <td class="col-platform">N/A</td>
+            <td><span class="comm-pill comm-pill--na">N/A</span></td>
+            <td class="col-cookie">N/A</td>
+            <td><span class="my-status my-status--na">N/A</span></td>
+            <td class="col-link"><span class="link-placeholder">— no affiliate program —</span></td>
+            <td class="col-notes">Luxury French candles. No affiliate program — prestige brand positioning. Feature in editorial content ("the splurge candle") and link via LTK if accepted, or link to authorized retailer (Nordstrom, Sephora). Don't skip featuring it — it's aspirational content even without commission.</td>
+            <td><span class="apply-btn apply-btn--disabled">Via LTK Only</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- ===== HOME DECOR & LIFESTYLE ===== -->
+    <div class="category-group fade-in" data-category-group="lifestyle">
+      <div class="category-group__title">Home Décor, Lifestyle & Design</div>
+      <div style="overflow-x:auto;">
+      <table class="brand-table">
+        <thead>
+          <tr>
+            <th style="width:180px">Brand</th>
+            <th>Program Type</th>
+            <th class="col-platform">Network / Platform</th>
+            <th>Commission</th>
+            <th class="col-cookie">Cookie</th>
+            <th>My Status</th>
+            <th class="col-link">My Link</th>
+            <th class="col-notes">Notes</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Magnolia (Chip & Joanna)</span><a href="https://www.shareasale.com" target="_blank" class="brand-url">via ShareASale</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">ShareASale</td>
+            <td><span class="comm-pill">~5–10%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--pending">Pending ShareASale</span></td>
+            <td class="col-link"><span class="link-placeholder">— pending ShareASale —</span></td>
+            <td class="col-notes">Strong brand recognition. Home goods, seasonal decor, kitchen textiles. Farmhouse-to-modern aesthetic overlaps well with Savor & Simplify audience.</td>
+            <td><a href="https://www.shareasale.com/info/affiliate.cfm" target="_blank" class="apply-btn">Via ShareASale →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Balsam Hill</span><a href="https://www.balsamhill.com/affiliates" target="_blank" class="brand-url">balsamhill.com/affiliates</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">CJ Affiliate</td>
+            <td><span class="comm-pill">~4–8%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--pending">Pending CJ</span></td>
+            <td class="col-link"><span class="link-placeholder">— pending CJ application —</span></td>
+            <td class="col-notes">Premium seasonal decor — artificial trees, wreaths, garlands, holiday tabletop. High AOV. Critical for Christmas collection. Start building content before November 1.</td>
+            <td><a href="https://www.cj.com/publisher" target="_blank" class="apply-btn">Via CJ →</a></td>
+          </tr>
+          <tr class="partner-row" data-type="wholesale">
+            <td><span class="brand-name">Kim Seybert</span><a href="https://www.kimseybert.com/pages/trade" target="_blank" class="brand-url">kimseybert.com/trade</a></td>
+            <td><span class="badge badge--wholesale">⊕ Wholesale / Trade</span></td>
+            <td class="col-platform">Direct / Trade</td>
+            <td><span class="comm-pill comm-pill--na">Trade pricing</span></td>
+            <td class="col-cookie">N/A</td>
+            <td><span class="my-status my-status--na">No Program</span></td>
+            <td class="col-link"><span class="link-placeholder">— wholesale only —</span></td>
+            <td class="col-notes">Ultra-luxury table linens and napkin rings. No affiliate program — trade accounts only. Feature in "Splurge" tier; link via retailers like Neiman Marcus or Bergdorf that carry it.</td>
+            <td><span class="apply-btn apply-btn--disabled">Trade Only</span></td>
+          </tr>
+          <tr class="partner-row" data-type="affiliate">
+            <td><span class="brand-name">Artifact Uprising</span><a href="https://www.artifactuprising.com/affiliates" target="_blank" class="brand-url">artifactuprising.com</a></td>
+            <td><span class="badge badge--affiliate">✓ Affiliate</span></td>
+            <td class="col-platform">Direct (Refersion)</td>
+            <td><span class="comm-pill">~15%</span></td>
+            <td class="col-cookie">30 days</td>
+            <td><span class="my-status my-status--pending">Pending</span></td>
+            <td class="col-link"><span class="link-placeholder">— not yet applied —</span></td>
+            <td class="col-notes">Premium photo printing and personalized gifts. High commission (15%). Great for gifting guides, Mother's Day, and Father's Day content.</td>
+            <td><a href="https://www.artifactuprising.com/affiliates" target="_blank" class="apply-btn">Apply →</a></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- Quick Reference Summary -->
+    <div class="fade-in" style="background:white; border-radius:var(--radius-md); padding:2.5rem; box-shadow:0 1px 3px rgba(0,0,0,.06); margin-top:2rem;">
+      <h2 style="font-family:var(--font-display); font-size:1.5rem; margin-bottom:1.5rem; color:var(--espresso);">Quick Start: First 30 Days</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem;">
+        <div>
+          <div style="font-size:.65rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--warm-gray); margin-bottom:.75rem;">Week 1 — Apply to Networks</div>
+          <ul style="list-style:none; padding:0; margin:0; font-size:.8125rem; line-height:2;">
+            <li>✅ Amazon Associates</li>
+            <li>✅ CJ Affiliate (covers WS/PB/West Elm)</li>
+            <li>✅ Impact Radius (covers Target/Sur La Table)</li>
+            <li>✅ Awin (covers Etsy/Anthropologie)</li>
+            <li>✅ ShareASale (covers Stonewall/Rifle Paper)</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:.65rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--warm-gray); margin-bottom:.75rem;">Week 2 — Apply to Brands</div>
+          <ul style="list-style:none; padding:0; margin:0; font-size:.8125rem; line-height:2;">
+            <li>✅ LTK (LikeToKnow.it) — apply early</li>
+            <li>✅ P.F. Candle Co. — 15%, easy approval</li>
+            <li>✅ Artifact Uprising — 15%, easy approval</li>
+            <li>✅ Great Jones Cookware — 10%</li>
+            <li>✅ 1stDibs — for Splurge tier content</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:.65rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--warm-gray); margin-bottom:.75rem;">Week 3 — Verify & Wholesale</div>
+          <ul style="list-style:none; padding:0; margin:0; font-size:.8125rem; line-height:2;">
+            <li>✅ Contact Caspari for trade pricing</li>
+            <li>✅ Verify EBTH current referral program</li>
+            <li>✅ Verify Chairish referral terms</li>
+            <li>✅ Check Boy Smells affiliate program</li>
+            <li>✅ Set up Rakuten (for Voluspa/Crate)</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:.65rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--warm-gray); margin-bottom:.75rem;">Week 4 — Replace Placeholders</div>
+          <ul style="list-style:none; padding:0; margin:0; font-size:.8125rem; line-height:2;">
+            <li>✅ Update halloween.html product links</li>
+            <li>✅ Update index.html featured picks</li>
+            <li>✅ Build Thanksgiving collection links</li>
+            <li>✅ Add Amazon storefront to About page</li>
+            <li>✅ Update this tracker with live links</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer__inner container">
+    <div class="footer__brand">
+      <a href="index.html" class="footer__logo">Savor <span>&</span> Simplify</a>
+      <p class="footer__tagline">Curated picks for a life that feels as good as it looks.</p>
+    </div>
+    <div class="footer__cols">
+      <div class="footer__col">
+        <h4>Collections</h4>
+        <ul>
+          <li><a href="halloween.html">Halloween</a></li>
+          <li><a href="collections.html">Thanksgiving</a></li>
+          <li><a href="collections.html">Christmas</a></li>
+          <li><a href="collections.html">All Collections</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="about.html">About Laura</a></li>
+          <li><a href="about.html">How We Curate</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="container">
+      <span>© 2026 Savor & Simplify. All rights reserved.</span>
+      <span>This page contains affiliate links. See our <a href="#">Affiliate Disclosure</a>.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Fade-in observer
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  // Mobile nav
+  const hamburger = document.querySelector('.nav__hamburger');
+  const mobileNav = document.querySelector('.mobile-nav');
+  const closeBtn  = document.querySelector('.mobile-nav__close');
+  if (hamburger) hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
+  if (closeBtn)  closeBtn.addEventListener('click',  () => mobileNav.classList.remove('open'));
+
+  // Filter pills
+  const pills = document.querySelectorAll('.filter-pill');
+  const rows  = document.querySelectorAll('.partner-row');
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const f = pill.dataset.filter;
+      rows.forEach(row => {
+        if (f === 'all') {
+          row.dataset.hidden = 'false';
+        } else if (f === 'priority') {
+          row.dataset.hidden = row.dataset.priority === 'true' ? 'false' : 'true';
+        } else {
+          row.dataset.hidden = row.dataset.type === f ? 'false' : 'true';
+        }
+      });
+    });
+  });
+
+  // Search
+  const searchInput = document.getElementById('brandSearch');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.toLowerCase();
+    rows.forEach(row => {
+      const text = row.textContent.toLowerCase();
+      row.dataset.hidden = text.includes(q) ? 'false' : 'true';
+    });
+    if (q) {
+      pills.forEach(p => p.classList.remove('active'));
+    }
+  });
+</script>
+</body>
+</html>

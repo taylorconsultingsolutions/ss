@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanksgiving Collection 2026 — Savor & Simplify</title>
+  <meta name="description" content="Laura's curated Thanksgiving table collection — harvest linens, terracotta serving pieces, warm amber glassware, and everything you need for the table they'll talk about all year.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* === COLLECTION HERO === */
+    .coll-hero {
+      background: linear-gradient(160deg, #1a0c00 0%, #3d2000 40%, #7a4010 75%, #c8914a 100%);
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (max-width: 768px) {
+      .coll-hero { grid-template-columns: 1fr; min-height: auto; padding: 5rem 0; }
+      .coll-hero__visual { display: none; }
+    }
+    .coll-hero__content {
+      padding: 5rem 4rem 5rem 6rem;
+      max-width: 600px;
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width: 768px) { .coll-hero__content { padding: 3rem 1.5rem; max-width: 100%; } }
+    .coll-hero__season {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(212,168,67,.2);
+      border: 1px solid rgba(212,168,67,.4);
+      border-radius: 20px;
+      padding: .375rem 1rem;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #e8c87a;
+      margin-bottom: 1.5rem;
+    }
+    .coll-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 700;
+      color: #F9E8D0;
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+    .coll-hero h1 em { color: #e8c87a; font-style: italic; }
+    .coll-hero__sub {
+      font-size: 1.0625rem;
+      color: rgba(255,255,255,.72);
+      line-height: 1.78;
+      max-width: 46ch;
+      margin-bottom: 2rem;
+    }
+    .coll-hero__cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .coll-hero__cta .btn--primary { background: #9a5520; border-color: #9a5520; }
+    .coll-hero__cta .btn--primary:hover { background: #7a3d12; border-color: #7a3d12; }
+    .coll-hero__cta .btn--ghost {
+      color: rgba(255,255,255,.85);
+      border: 1.5px solid rgba(255,255,255,.3);
+      background: transparent;
+      border-radius: 6px;
+      padding: .75rem 1.5rem;
+      font-size: .875rem;
+      font-weight: 500;
+      font-family: var(--font-body);
+      text-decoration: none;
+      transition: border-color .25s, background .25s;
+    }
+    .coll-hero__cta .btn--ghost:hover { border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.08); }
+    .coll-hero__trust {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .coll-hero__trust-item {
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      color: rgba(255,255,255,.55);
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    /* Visual side */
+    .coll-hero__visual {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .coll-hero__scene {
+      width: 90%;
+      max-width: 500px;
+      aspect-ratio: 4/5;
+      background: linear-gradient(160deg, #2a1000, #5c2800 60%, #8a4510);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(212,168,67,.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .coll-hero__scene::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(212,168,67,.15) 0%, transparent 70%);
+    }
+
+    /* === THE LOOK === */
+    .the-look {
+      background: var(--espresso);
+      padding: 6rem 0;
+      color: white;
+    }
+    .the-look .container { max-width: 1100px; }
+    .the-look__header { text-align: center; margin-bottom: 3.5rem; }
+    .the-look__header .eyebrow { color: #e8c87a; }
+    .the-look__header h2 { color: white; font-size: clamp(2rem,4vw,3rem); }
+    .the-look__header p { color: rgba(255,255,255,.65); max-width: 56ch; margin: 1rem auto 0; font-size: 1rem; line-height: 1.75; }
+    .the-look__scene {
+      background: linear-gradient(145deg, #1a0800, #3d1e00 50%, #6a3510);
+      border-radius: var(--radius-xl);
+      aspect-ratio: 16/7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(212,168,67,.15);
+    }
+    @media (max-width: 768px) { .the-look__scene { aspect-ratio: auto; flex-wrap: wrap; padding: 2rem; gap: 1.5rem; } }
+    .look-element {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .75rem;
+      color: rgba(255,255,255,.8);
+    }
+    .look-element__icon { font-size: 3.5rem; }
+    .look-element__label { font-size: .75rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.5); }
+    .look-element--featured .look-element__icon { font-size: 5rem; }
+    .look-element__tag {
+      background: rgba(212,168,67,.3);
+      border: 1px solid rgba(212,168,67,.5);
+      border-radius: 20px;
+      padding: .25rem .75rem;
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      color: #e8c87a;
+      text-transform: uppercase;
+    }
+
+    /* === CATEGORY TABS & PRODUCT GRID === */
+    .shop-cats {
+      padding: 5.5rem 0;
+      background: var(--cream);
+    }
+    .shop-cats__header { text-align: center; margin-bottom: 3rem; }
+    .shop-cats__tabs {
+      display: flex;
+      gap: .625rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .cat-tab {
+      padding: .5rem 1.25rem;
+      border-radius: 20px;
+      border: 1.5px solid var(--sand);
+      background: white;
+      font-size: .75rem;
+      font-weight: 500;
+      font-family: var(--font-body);
+      color: var(--warm-gray);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .cat-tab:hover { border-color: var(--olive); color: var(--olive); }
+    .cat-tab.active { background: var(--espresso); border-color: var(--espresso); color: white; }
+
+    .cp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .cp-card {
+      background: white;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,.07);
+      transition: box-shadow .25s, transform .25s;
+      display: flex;
+      flex-direction: column;
+    }
+    .cp-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.12); transform: translateY(-2px); }
+    .cp-card__img {
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cp-card__badge {
+      position: absolute;
+      top: .75rem;
+      right: .75rem;
+      background: rgba(154,85,32,.9);
+      color: white;
+      border-radius: 20px;
+      padding: .25rem .65rem;
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .cp-card__body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+    .cp-card__cat {
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #9a5520;
+      margin-bottom: .35rem;
+    }
+    .cp-card__name {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--espresso);
+      margin-bottom: .5rem;
+      line-height: 1.3;
+    }
+    .cp-card__desc { font-size: .8125rem; color: var(--warm-gray); line-height: 1.6; flex: 1; }
+    .cp-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--sand);
+    }
+    .cp-card__price { font-size: .875rem; font-weight: 600; color: var(--espresso); }
+    .cp-card__shop {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--olive);
+      text-decoration: none;
+      border: 1.5px solid var(--olive);
+      border-radius: 20px;
+      padding: .3rem .8rem;
+      transition: background .2s, color .2s;
+    }
+    .cp-card__shop:hover { background: var(--olive); color: white; }
+
+    /* === TIERS SECTION === */
+    .tiers-section {
+      background: var(--linen);
+      padding: 6rem 0;
+    }
+    .tiers-section__header { text-align: center; margin-bottom: 3.5rem; }
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 768px) { .tiers-grid { grid-template-columns: 1fr; } }
+    .tier-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 1.75rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,.07);
+      position: relative;
+      overflow: hidden;
+    }
+    .tier-card--featured {
+      background: var(--espresso);
+      color: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,.18);
+    }
+    .tier-card--featured::before {
+      content: "Laura's Choice";
+      position: absolute;
+      top: 1rem;
+      right: -2rem;
+      background: #D4A843;
+      color: var(--espresso);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .3rem 3rem;
+      transform: rotate(35deg);
+    }
+    .tier-label {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: .5rem;
+      color: #9a5520;
+    }
+    .tier-card--featured .tier-label { color: #D4A843; }
+    .tier-name {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--espresso);
+      margin-bottom: .25rem;
+      line-height: 1.1;
+    }
+    .tier-card--featured .tier-name { color: white; }
+    .tier-range {
+      font-size: .8125rem;
+      color: var(--warm-gray);
+      margin-bottom: 1.5rem;
+    }
+    .tier-card--featured .tier-range { color: rgba(255,255,255,.6); }
+    .tier-items {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+    .tier-items li {
+      font-size: .8125rem;
+      color: var(--warm-gray);
+      display: flex;
+      align-items: flex-start;
+      gap: .5rem;
+      line-height: 1.45;
+    }
+    .tier-card--featured .tier-items li { color: rgba(255,255,255,.75); }
+    .tier-items li::before { content: '—'; color: #9a5520; flex-shrink: 0; font-weight: 600; }
+    .tier-card--featured .tier-items li::before { color: #D4A843; }
+    .tier-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--olive);
+      text-decoration: none;
+      border: 1.5px solid var(--olive);
+      border-radius: 20px;
+      padding: .5rem 1.25rem;
+      transition: all .2s;
+    }
+    .tier-cta:hover { background: var(--olive); color: white; }
+    .tier-card--featured .tier-cta { border-color: #D4A843; color: #D4A843; }
+    .tier-card--featured .tier-cta:hover { background: #D4A843; color: var(--espresso); }
+
+    /* === LAURA'S NOTE === */
+    .lauras-note {
+      background: white;
+      padding: 5rem 0;
+      border-top: 1px solid var(--sand);
+    }
+    .lauras-note .container { max-width: 760px; text-align: center; }
+    .lauras-note__avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--olive);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: white;
+      margin: 0 auto 1.25rem;
+    }
+    .lauras-note blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--espresso);
+      line-height: 1.68;
+      margin: 0 0 1.5rem;
+    }
+    .lauras-note__sig { font-size: .8125rem; color: var(--warm-gray); }
+    .lauras-note__sig strong { color: var(--espresso); font-weight: 600; }
+
+    /* === EMAIL CAPTURE === */
+    .coll-email {
+      background: linear-gradient(135deg, #2d1f0a 0%, #4a3010 100%);
+      padding: 5rem 0;
+      text-align: center;
+      color: white;
+    }
+    .coll-email .eyebrow { color: #D4A843; }
+    .coll-email h2 { color: white; font-size: clamp(1.75rem, 3.5vw, 2.75rem); max-width: 18ch; margin: .75rem auto 1rem; }
+    .coll-email p { color: rgba(255,255,255,.68); max-width: 50ch; margin: 0 auto 2rem; line-height: 1.75; font-size: .9375rem; }
+    .coll-email__checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto 2rem;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: .625rem;
+    }
+    .coll-email__checklist li {
+      display: flex;
+      align-items: center;
+      gap: .625rem;
+      font-size: .875rem;
+      color: rgba(255,255,255,.8);
+      text-align: left;
+    }
+    .coll-email__checklist li::before { content: '✓'; color: #D4A843; font-weight: 700; flex-shrink: 0; }
+    .email-form { display: flex; gap: .75rem; max-width: 420px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+    .email-form input[type="email"] {
+      flex: 1;
+      min-width: 200px;
+      padding: .875rem 1.25rem;
+      border: 1.5px solid rgba(255,255,255,.2);
+      border-radius: 6px;
+      background: rgba(255,255,255,.08);
+      color: white;
+      font-family: var(--font-body);
+      font-size: .875rem;
+    }
+    .email-form input::placeholder { color: rgba(255,255,255,.4); }
+    .email-form input:focus { outline: none; border-color: #D4A843; }
+    .email-form .btn--gold {
+      background: #D4A843;
+      border: none;
+      color: var(--espresso);
+      font-weight: 700;
+      padding: .875rem 1.75rem;
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: .875rem;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .email-form .btn--gold:hover { background: #c09235; }
+
+    /* Disclosure */
+    .disclosure {
+      background: var(--cream);
+      padding: 2rem 0;
+      border-top: 1px solid var(--sand);
+    }
+    .disclosure p {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: .75rem;
+      color: var(--warm-gray);
+      line-height: 1.75;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Announcement Bar -->
+<div class="announcement">
+  🦃 Thanksgiving Collection — Drops October 15
+</div>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">Savor <span>&</span> Simplify</a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collections.html" class="active">Collections</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button class="nav__hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav">
+  <button class="mobile-nav__close" aria-label="Close menu">✕</button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="collections.html">Collections</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="halloween.html" class="btn btn--primary">Shop Halloween Now</a>
+</div>
+
+<!-- HERO -->
+<section class="coll-hero">
+  <div class="coll-hero__content">
+    <div class="coll-hero__season">🍂 Fall Entertaining &nbsp;·&nbsp; November 2026</div>
+    <h1>The Table That Made <em>Them Stay Late.</em></h1>
+    <p class="coll-hero__sub">
+      A Thanksgiving table that feels effortless to pull together and impossible to forget. Warm linens, terracotta, amber glass, and the harvest pieces that make the whole gathering feel like home.
+    </p>
+    <div class="coll-hero__cta">
+      <a href="#shop" class="btn btn--primary">Shop the Collection</a>
+      <a href="#checklist" class="btn--ghost">Get the Free Checklist</a>
+    </div>
+    <div class="coll-hero__trust">
+      <span class="coll-hero__trust-item">🍂 Handpicked by Laura</span>
+      <span class="coll-hero__trust-item">✦ Good / Better / Best</span>
+      <span class="coll-hero__trust-item">🛒 No extra cost to you</span>
+    </div>
+  </div>
+  <div class="coll-hero__visual">
+    <div class="coll-hero__scene">🍂</div>
+  </div>
+</section>
+
+<!-- THE LOOK -->
+<section class="the-look">
+  <div class="container">
+    <div class="the-look__header fade-in">
+      <div class="eyebrow">The Finished Table</div>
+      <h2>A Harvest Gathering, Styled by Laura</h2>
+      <p>The terracotta and linen palette that feels organic, not overdone. Every element in this collection works together — or stands alone.</p>
+    </div>
+    <div class="the-look__scene fade-in">
+      <div class="look-element">
+        <div class="look-element__icon">🍂</div>
+        <div class="look-element__label">Harvest Runner</div>
+      </div>
+      <div class="look-element">
+        <div class="look-element__icon">🫙</div>
+        <div class="look-element__label">Ceramic Platters</div>
+      </div>
+      <div class="look-element look-element--featured">
+        <div class="look-element__icon">🥂</div>
+        <div class="look-element__tag">Laura's Pick</div>
+        <div class="look-element__label">Amber Goblets</div>
+      </div>
+      <div class="look-element">
+        <div class="look-element__icon">🕯️</div>
+        <div class="look-element__label">Beeswax Tapers</div>
+      </div>
+      <div class="look-element">
+        <div class="look-element__icon">🌾</div>
+        <div class="look-element__label">Dried Botanicals</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAURA'S NOTE -->
+<section class="lauras-note">
+  <div class="container fade-in">
+    <div class="lauras-note__avatar">L</div>
+    <blockquote>
+      "Thanksgiving is the one holiday where the table does all the heavy lifting. If it feels warm and considered — terracotta, warm linen, candlelight — people settle in. They don't rush. That's what I'm trying to give you here."
+    </blockquote>
+    <p class="lauras-note__sig"><strong>Laura</strong> · Founder, Savor & Simplify</p>
+  </div>
+</section>
+
+<!-- SHOP THE COLLECTION -->
+<section class="shop-cats" id="shop">
+  <div class="container">
+    <div class="shop-cats__header fade-in">
+      <div class="eyebrow">The Full Collection</div>
+      <h2>Shop by Category</h2>
+    </div>
+    <div class="shop-cats__tabs fade-in">
+      <button class="cat-tab active" data-cat="all">All Picks</button>
+      <button class="cat-tab" data-cat="tabletop">Tabletop</button>
+      <button class="cat-tab" data-cat="serving">Serving</button>
+      <button class="cat-tab" data-cat="decor">Decor</button>
+      <button class="cat-tab" data-cat="atmosphere">Atmosphere</button>
+      <button class="cat-tab" data-cat="food">Food & Drink</button>
+    </div>
+    <div class="cp-grid">
+
+      <!-- TABLETOP -->
+      <article class="cp-card fade-in" data-cat="tabletop">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#8a6230,#c8914a);">
+          <span>🏮</span>
+          <span class="cp-card__badge">Laura's Pick</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Tabletop</div>
+          <div class="cp-card__name">Harvest Linen Table Runner</div>
+          <div class="cp-card__desc">Washed natural flax linen in warm wheat. 72" long, pre-washed for softness. The anchor of the whole table — every other element stacks beautifully on top of this.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$48</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cp-card fade-in" data-cat="tabletop">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#8a4010,#c8694a);">
+          <span>🍽️</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Tabletop</div>
+          <div class="cp-card__name">Terracotta Dinner Plates</div>
+          <div class="cp-card__desc">Matte terracotta with a slightly imperfect, handcrafted glaze. The warmth of real clay without the fragility. Set of 4, dishwasher safe.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$72 · Set of 4</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cp-card fade-in" data-cat="tabletop">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#7a5210,#d4a843);">
+          <span>🥂</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Tabletop</div>
+          <div class="cp-card__name">Amber Wine Goblets</div>
+          <div class="cp-card__desc">Hand-blown amber glass that catches candlelight beautifully. Slightly smoky, slightly warm. Looks expensive, ships remarkably intact. Set of 4.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$58 · Set of 4</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cp-card fade-in" data-cat="tabletop">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#5c3a10,#9a6530);">
+          <span>🥄</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Tabletop</div>
+          <div class="cp-card__name">Hammered Copper Flatware</div>
+          <div class="cp-card__desc">Service for 4 (20 pieces). Warm hammered copper finish on solid stainless. Heavier than it looks, ages beautifully. The piece guests always comment on.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$92 · Service for 4</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cp-card fade-in" data-cat="tabletop">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#5c6b3a,#a8b98a);">
+          <span>🧴</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Tabletop</div>
+          <div class="cp-card__name">Sage & Rust Linen Napkins</div>
+          <div class="cp-card__desc">Set of 6 double-sided linen napkins — sage green one side, rust/terracotta the other. Substantial weight, pre-washed, naturally wrinkled is the look.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$44 · Set of 6</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cp-card fade-in" data-cat="tabletop">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#7a5820,#c8a040);">
+          <span>📃</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Tabletop</div>
+          <div class="cp-card__name">Harvest-Print Paper Dinner Napkins</div>
+          <div class="cp-card__desc">Caspari-quality printed cocktail napkins for people who don't want to do laundry after Thanksgiving. Botanical botanical harvest print, sold in packs of 20.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$14 · Pack of 20</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- SERVING -->
+      <article class="cp-card fade-in" data-cat="serving">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#3d2010,#8a5020);">
+          <span>🍗</span>
+          <span class="cp-card__badge">Centerpiece</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Serving</div>
+          <div class="cp-card__name">Large Oval Ceramic Serving Platter</div>
+          <div class="cp-card__desc">16" oval platter in speckled cream. Wide enough for a carved turkey, beautiful enough to carry everything — salads, cheese, dessert. The platter you'll use all year.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$68</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cp-card fade-in" data-cat="serving">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#8a4010,#c06030);">
+          <span>🫙</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Serving</div>
+          <div class="cp-card__name">Terracotta Gravy Boat</div>
+          <div class="cp-card__desc">Wide-mouth gravy boat in glazed terracotta. Pours clean, looks beautiful on the table (not hiding in the kitchen). Matching saucer included.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$38</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cp-card fade-in" data-cat="serving">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#5c3a0a,#a06a20);">
+          <span>🥗</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Serving</div>
+          <div class="cp-card__name">Carved Olive Wood Salad Bowl</div>
+          <div class="cp-card__desc">Large hand-carved olive wood bowl with matching servers. Every piece is unique. The grain pattern is the art. Holds enough for 8-10 guests.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$82 · With servers</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cp-card fade-in" data-cat="serving">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#6b4520,#b07840);">
+          <span>🪵</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Serving</div>
+          <div class="cp-card__name">Harvest Cutting & Carving Board</div>
+          <div class="cp-card__desc">End-grain walnut board with juice groove and carved handle. Large format (18" × 12"). Carve the turkey, slice the pie, transfer straight to the table.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$96</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cp-card fade-in" data-cat="serving">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#3d3010,#7a6020);">
+          <span>🥄</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Serving</div>
+          <div class="cp-card__name">Hammered Brass Serving Spoons</div>
+          <div class="cp-card__desc">Set of 4 hand-hammered brass-finish serving spoons. Different sizes for different dishes. The set that makes casseroles look elegant.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$42 · Set of 4</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- DECOR -->
+      <article class="cp-card fade-in" data-cat="decor">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#5c4010,#a07a20);">
+          <span>🌾</span>
+          <span class="cp-card__badge">Centerpiece</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Decor</div>
+          <div class="cp-card__name">Dried Wheat & Corn Husk Bundle</div>
+          <div class="cp-card__desc">Pre-dried arrangement of wheat stalks, dried corn husks, and preserved autumn leaves. Ships flat, arranges in 5 minutes. The centerpiece Laura builds the whole table around.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$32</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cp-card fade-in" data-cat="decor">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#8a3d10,#c06820);">
+          <span>🎃</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Decor</div>
+          <div class="cp-card__name">Heirloom Mini Pumpkin & Gourd Set</div>
+          <div class="cp-card__desc">Assorted mini pumpkins and gourds in cream, orange, and deep terracotta. Clusters of 3-5 fill in the table naturally. No vase required — just scatter them.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$28 · Set of 8</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cp-card fade-in" data-cat="decor">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#4a3a10,#8a6820);">
+          <span>🍁</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Decor</div>
+          <div class="cp-card__name">Acorn & Magnolia Leaf Garland</div>
+          <div class="cp-card__desc">Preserved natural magnolia leaves with acorn accents on a flexible wire. Drapes beautifully down the center of the table or along a mantel. 5 feet.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$36</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cp-card fade-in" data-cat="decor">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#2a1a00,#5c3a00);">
+          <span>🏺</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Decor</div>
+          <div class="cp-card__name">Bud Vases — Amber & Terracotta</div>
+          <div class="cp-card__desc">Set of 3 bud vases in amber glass and terracotta ceramic. Different heights, cohesive palette. Fill with a few dried stems or leave empty — both work.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$44 · Set of 3</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ATMOSPHERE -->
+      <article class="cp-card fade-in" data-cat="atmosphere">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#5c3010,#9a5820);">
+          <span>🕯️</span>
+          <span class="cp-card__badge">Laura's Pick</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Atmosphere</div>
+          <div class="cp-card__name">Clove & Fig Harvest Candle</div>
+          <div class="cp-card__desc">The scent that makes the room feel like Thanksgiving before anyone even sits down. Notes of dried clove, fig, warm wood, and a touch of vanilla. Large tumbler, 60-hour burn.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$38</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cp-card fade-in" data-cat="atmosphere">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#7a5a10,#c09030);">
+          <span>🪔</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Atmosphere</div>
+          <div class="cp-card__name">Hammered Brass Taper Holders</div>
+          <div class="cp-card__desc">Set of 3 hand-hammered brass candlestick holders at varying heights (3", 5", 7"). The asymmetric grouping is the whole aesthetic. Fits standard taper candles.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$52 · Set of 3</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cp-card fade-in" data-cat="atmosphere">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#8a7820,#d4c040);">
+          <span>🕯️</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Atmosphere</div>
+          <div class="cp-card__name">Natural Beeswax Taper Candles</div>
+          <div class="cp-card__desc">12 tapers in natural unbleached beeswax. The warm honey color is the look — no dye, no artificial scent. Burns clean, drips minimally. Set of 12.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$26 · Set of 12</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- FOOD & DRINK -->
+      <article class="cp-card fade-in" data-cat="food">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#7a0a0a,#b03020);">
+          <span>🍒</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Food & Drink</div>
+          <div class="cp-card__name">Artisan Cranberry & Orange Chutney</div>
+          <div class="cp-card__desc">Small-batch cranberry chutney with orange peel, cardamom, and a splash of brandy. The jar that replaces the can forever. Ships refrigerated.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$18 · 12 oz jar</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cp-card fade-in" data-cat="food">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#6b5a20,#b09040);">
+          <span>🧂</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Food & Drink</div>
+          <div class="cp-card__name">Smoked Harvest Finishing Salt</div>
+          <div class="cp-card__desc">Hickory-smoked sea salt with dried herbs. The finishing touch on turkey, roasted vegetables, and pie. Comes in a beautiful pinch jar that lives on the table.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$22</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cp-card fade-in" data-cat="food">
+        <div class="cp-card__img" style="background:linear-gradient(145deg,#4a2010,#8a4820);">
+          <span>🍎</span>
+        </div>
+        <div class="cp-card__body">
+          <div class="cp-card__cat">Food & Drink</div>
+          <div class="cp-card__name">Heritage Apple Cider Sampler</div>
+          <div class="cp-card__desc">Four 375ml bottles of small-batch sparkling apple cider — different varietal apples, each slightly different. The non-alcoholic centerpiece of the beverage table. Beautiful bottles.</div>
+          <div class="cp-card__footer">
+            <span class="cp-card__price">$48 · 4-bottle set</span>
+            <a href="#" class="cp-card__shop" target="_blank" rel="noopener">Shop →</a>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /cp-grid -->
+  </div>
+</section>
+
+<!-- GOOD / BETTER / BEST TIERS -->
+<section class="tiers-section">
+  <div class="container">
+    <div class="tiers-section__header fade-in">
+      <div class="eyebrow">Shop by Budget</div>
+      <h2>Good · Better · Best</h2>
+      <p style="max-width:52ch; margin:.75rem auto 0; color:var(--warm-gray); font-size:.9375rem; line-height:1.75;">Every collection has three tiers. Pick the one that fits — or mix and match across them. You don't need to spend a lot to make it feel expensive.</p>
+    </div>
+    <div class="tiers-grid fade-in">
+      <div class="tier-card">
+        <div class="tier-label">Good</div>
+        <div class="tier-name">Simplified</div>
+        <div class="tier-range">Under $120 total</div>
+        <ul class="tier-items">
+          <li>Wheat linen runner from Target or World Market</li>
+          <li>Terracotta plates (set of 4) from Etsy</li>
+          <li>Hammered copper flatware, service for 4</li>
+          <li>Caspari harvest-print paper napkins</li>
+          <li>Mini pumpkin cluster from the grocery store</li>
+        </ul>
+        <a href="#shop" class="tier-cta">Shop Simplified →</a>
+      </div>
+      <div class="tier-card tier-card--featured">
+        <div class="tier-label">Better</div>
+        <div class="tier-name">Signature</div>
+        <div class="tier-range">$200–$380 total</div>
+        <ul class="tier-items">
+          <li>Washed linen runner in natural flax</li>
+          <li>Williams Sonoma speckle-glaze dinner plates</li>
+          <li>Amber goblets, hand-blown set of 4</li>
+          <li>Sage & rust double-sided linen napkins</li>
+          <li>Olive wood salad bowl + carved serving set</li>
+          <li>Beeswax taper candles + brass holders</li>
+        </ul>
+        <a href="#shop" class="tier-cta">Shop Signature →</a>
+      </div>
+      <div class="tier-card">
+        <div class="tier-label">Best</div>
+        <div class="tier-name">Splurge</div>
+        <div class="tier-range">$400–$700 total</div>
+        <ul class="tier-items">
+          <li>Juliska or Pottery Barn heirloom dinner plates</li>
+          <li>Vintage amber decanters from 1stDibs or EBTH</li>
+          <li>Artisan walnut carving board</li>
+          <li>Kim Seybert linen napkins in rust/gold</li>
+          <li>Large ceramic turkey platter (keepsake quality)</li>
+          <li>Hammered brass complete candlestick set</li>
+        </ul>
+        <a href="#shop" class="tier-cta">Shop Splurge →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL CAPTURE -->
+<section class="coll-email" id="checklist">
+  <div class="container">
+    <div class="fade-in">
+      <div class="eyebrow">Free Download</div>
+      <h2>The Thanksgiving Hosting Checklist</h2>
+      <p>The exact timeline Laura uses: what to order 3 weeks out, what to prep the weekend before, and the one thing everyone forgets until Tuesday night.</p>
+      <ul class="coll-email__checklist">
+        <li>Week-by-week prep timeline (not just day-of)</li>
+        <li>Table setting diagram with measurements</li>
+        <li>Printable seating card template</li>
+        <li>The "just in case" grocery run list</li>
+      </ul>
+      <form class="email-form" onsubmit="return false;">
+        <input type="email" placeholder="Your email address">
+        <button class="btn--gold" type="submit">Get the Checklist</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Affiliate Disclosure -->
+<div class="disclosure">
+  <div class="container">
+    <p>
+      <strong>Affiliate Disclosure:</strong> Savor & Simplify participates in affiliate programs, including Amazon Associates and others. When you click a "Shop →" link and make a purchase, we may earn a small commission — at absolutely no extra cost to you. All picks are chosen by Laura based on genuine quality and curation standards. We only recommend products we believe in.
+    </p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer__inner container">
+    <div class="footer__brand">
+      <a href="index.html" class="footer__logo">Savor <span>&</span> Simplify</a>
+      <p class="footer__tagline">Curated picks for a life that feels as good as it looks.</p>
+    </div>
+    <div class="footer__cols">
+      <div class="footer__col">
+        <h4>Collections</h4>
+        <ul>
+          <li><a href="halloween.html">Halloween</a></li>
+          <li><a href="thanksgiving.html">Thanksgiving</a></li>
+          <li><a href="collections.html">Christmas (Nov 15)</a></li>
+          <li><a href="collections.html">All Collections</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="about.html">About Laura</a></li>
+          <li><a href="about.html">How We Curate</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="contact.html">Newsletter</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Pinterest</a></li>
+          <li><a href="#">Get in Touch</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="container">
+      <span>© 2026 Savor & Simplify. All rights reserved.</span>
+      <span>Contains affiliate links. See our <a href="#">Affiliate Disclosure</a>.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  // Mobile nav
+  const hamburger = document.querySelector('.nav__hamburger');
+  const mobileNav = document.querySelector('.mobile-nav');
+  const closeBtn  = document.querySelector('.mobile-nav__close');
+  if (hamburger) hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
+  if (closeBtn)  closeBtn.addEventListener('click',  () => mobileNav.classList.remove('open'));
+
+  // Category tabs
+  const tabs  = document.querySelectorAll('.cat-tab');
+  const cards = document.querySelectorAll('.cp-card');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const cat = tab.dataset.cat;
+      cards.forEach(card => {
+        card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>
